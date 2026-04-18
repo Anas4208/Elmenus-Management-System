@@ -1,6 +1,7 @@
-projectKey=Elmenus
-serverUrl=http://localhost:9000
-serverVersion=26.4.0.121862
-dashboardUrl=http://localhost:9000/dashboard?id=Elmenus
-ceTaskId=8b78aead-b469-4b5d-8cce-ef9074267285
-ceTaskUrl=http://localhost:9000/api/ce/task?id=8b78aead-b469-4b5d-8cce-ef9074267285
+organization=anas4208-workspace
+projectKey=anas4208-workspace_anas4208-workspace
+serverUrl=https://sonarcloud.io
+serverVersion=8.0.0.85609
+dashboardUrl=https://sonarcloud.io/dashboard?id=anas4208-workspace_anas4208-workspace
+ceTaskId=AZ2iTHxcBQE_A6JxF8A9
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AZ2iTHxcBQE_A6JxF8A9
