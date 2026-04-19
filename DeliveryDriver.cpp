@@ -16,6 +16,13 @@ DeliveryDriver::DeliveryDriver(const std::string& id, const std::string& name,
     if (totalEarnings_ < 0) totalEarnings_ = 0;
 }
 
+// Use = default for destructor and special members
+DeliveryDriver::~DeliveryDriver() = default;
+DeliveryDriver::DeliveryDriver(const DeliveryDriver& other) = default;
+DeliveryDriver& DeliveryDriver::operator=(const DeliveryDriver& other) = default;
+DeliveryDriver::DeliveryDriver(DeliveryDriver&& other) noexcept = default;
+DeliveryDriver& DeliveryDriver::operator=(DeliveryDriver&& other) noexcept = default;
+
 void DeliveryDriver::displayInfo() const {
     std::cout << "\n=== Driver Information ===" << std::endl;
     std::cout << "ID: " << getUserId() << std::endl;
