@@ -16,9 +16,11 @@ public:
     explicit User(const std::string& userId, const std::string& name, const std::string& phoneNumber);
     virtual ~User();
     
-    // Use default instead of explicit delete where appropriate
+    // Copy operations - explicitly defaulted
     User(const User& other) = default;
     User& operator=(const User& other) = default;
+    
+    // Move operations - explicitly defaulted
     User(User&& other) noexcept = default;
     User& operator=(User&& other) noexcept = default;
     
