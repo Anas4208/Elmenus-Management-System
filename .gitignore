@@ -31,12 +31,6 @@ coverage_report/
 __pycache__/
 *.pyo
 *.pyd
-*.pdf
-*.py
-
-# JSON and data files
-*.json
-*.log
 
 # IDE files
 .DS_Store
@@ -50,7 +44,6 @@ __pycache__/
 
 # Compiled outputs
 compile_commands.json
-*.exe
 
 # Temporary files
 *.tmp
@@ -58,9 +51,14 @@ compile_commands.json
 test_input.txt
 sonar_output.log
 
-# Documentation (keep source, not generated)
-docs/*.pdf
-!docs/*.md
+# Unwanted files in root
+main_simple.cpp
+run_coverage.sh
+sonar-cxx-plugin-*.jar
+SonarCloud_*.pdf
+
+# Keep docs PDFs (they are allowed)
+!docs/*.pdf
 
 # OS files
 Thumbs.db
