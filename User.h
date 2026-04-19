@@ -16,13 +16,11 @@ public:
     explicit User(const std::string& userId, const std::string& name, const std::string& phoneNumber);
     virtual ~User();
     
-    // Copy constructor and copy assignment
-    User(const User& other);
-    User& operator=(const User& other);
-    
-    // Move constructor and move assignment
-    User(User&& other) noexcept;
-    User& operator=(User&& other) noexcept;
+    // Use default instead of explicit delete where appropriate
+    User(const User& other) = default;
+    User& operator=(const User& other) = default;
+    User(User&& other) noexcept = default;
+    User& operator=(User&& other) noexcept = default;
     
     virtual void displayInfo() const = 0;
     virtual double calculateEarnings() const = 0;

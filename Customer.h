@@ -13,7 +13,13 @@ public:
     Customer();
     explicit Customer(const std::string& id, const std::string& name, 
                       const std::string& phone, const std::string& address);
+    
+    // Use default instead of explicit implementations
     ~Customer() override = default;
+    Customer(const Customer& other) = default;
+    Customer& operator=(const Customer& other) = default;
+    Customer(Customer&& other) noexcept = default;
+    Customer& operator=(Customer&& other) noexcept = default;
     
     void displayInfo() const override;
     double calculateEarnings() const override;
