@@ -18,9 +18,9 @@ DeliveryDriver::DeliveryDriver(const std::string& id, const std::string& name,
 
 void DeliveryDriver::displayInfo() const {
     std::cout << "\n=== Driver Information ===" << std::endl;
-    std::cout << "ID: " << getUserId() << std::endl;  // Using getter
-    std::cout << "Name: " << getName() << std::endl;  // Using getter
-    std::cout << "Phone: " << getPhoneNumber() << std::endl;  // Using getter
+    std::cout << "ID: " << getUserId() << std::endl;
+    std::cout << "Name: " << getName() << std::endl;
+    std::cout << "Phone: " << getPhoneNumber() << std::endl;
     std::cout << "Vehicle: " << vehicleType_ << std::endl;
     std::cout << "Completed Deliveries: " << completedDeliveries_ << std::endl;
     std::cout << "Total Earnings: " << std::fixed << std::setprecision(2) 

@@ -9,9 +9,9 @@ Customer::Customer(const std::string& id, const std::string& name,
 
 void Customer::displayInfo() const {
     std::cout << "\n=== Customer Information ===" << std::endl;
-    std::cout << "ID: " << getUserId() << std::endl;  // Using getter
-    std::cout << "Name: " << getName() << std::endl;  // Using getter
-    std::cout << "Phone: " << getPhoneNumber() << std::endl;  // Using getter
+    std::cout << "ID: " << getUserId() << std::endl;
+    std::cout << "Name: " << getName() << std::endl;
+    std::cout << "Phone: " << getPhoneNumber() << std::endl;
     std::cout << "Address: " << deliveryAddress_ << std::endl;
     std::cout << "Loyalty Points: " << loyaltyPoints_ << std::endl;
     std::cout << "===========================" << std::endl;

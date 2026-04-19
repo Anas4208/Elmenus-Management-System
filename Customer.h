@@ -7,13 +7,13 @@
 class Customer : public User {
 private:
     std::string deliveryAddress_;
-    int loyaltyPoints_{0};  // Fixed: In-class initializer instead of constructor initializer list
+    int loyaltyPoints_{0};
     
 public:
     Customer();
     explicit Customer(const std::string& id, const std::string& name, 
                       const std::string& phone, const std::string& address);
-    virtual ~Customer() = default;
+    ~Customer() override = default;
     
     void displayInfo() const override;
     double calculateEarnings() const override;
