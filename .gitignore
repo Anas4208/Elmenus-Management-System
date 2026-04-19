@@ -1,0 +1,66 @@
+# Build artifacts
+*.o
+*.exe
+*.out
+*.app
+main
+test_program
+main_working
+*.dSYM/
+*.dSYM.zip
+
+# Coverage files
+*.gcda
+*.gcno
+*.gcov
+*.profraw
+*.profdata
+coverage.info
+coverage.xml
+coverage.html
+.coverage
+reports/
+coverage_report/
+
+# SonarCloud
+.scannerwork/
+.sonar/
+
+# Python
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+*.pdf
+*.py
+
+# JSON and data files
+*.json
+*.log
+
+# IDE files
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+
+# Compiled outputs
+compile_commands.json
+*.exe
+
+# Temporary files
+*.tmp
+*.temp
+test_input.txt
+sonar_output.log
+
+# Documentation (keep source, not generated)
+docs/*.pdf
+!docs/*.md
+
+# OS files
+Thumbs.db
