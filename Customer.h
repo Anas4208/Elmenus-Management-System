@@ -7,18 +7,13 @@
 class Customer : public User {
 private:
     std::string deliveryAddress_;
-    int loyaltyPoints_;
+    int loyaltyPoints_{0};  // Fixed: In-class initializer instead of constructor initializer list
     
 public:
     Customer();
     explicit Customer(const std::string& id, const std::string& name, 
                       const std::string& phone, const std::string& address);
-    
-    // Allow copy and move operations
-    Customer(const Customer& other) = default;
-    Customer& operator=(const Customer& other) = default;
-    Customer(Customer&& other) noexcept = default;
-    Customer& operator=(Customer&& other) noexcept = default;
+    virtual ~Customer() = default;
     
     void displayInfo() const override;
     double calculateEarnings() const override;
@@ -27,8 +22,6 @@ public:
     int getLoyaltyPoints() const;
     
     Customer& operator+=(int points);
-    
-    virtual ~Customer() = default;
 };
 
 #endif

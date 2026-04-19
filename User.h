@@ -5,7 +5,7 @@
 #include <string>
 
 class User {
-protected:
+private:  // Fixed: Changed from protected to private for better encapsulation
     std::string userId_;
     std::string name_;
     std::string phoneNumber_;
@@ -16,19 +16,16 @@ public:
     explicit User(const std::string& userId, const std::string& name, const std::string& phoneNumber);
     virtual ~User();
     
-    // Explicitly allow copy constructor and assignment
+    // Copy and move operations
     User(const User& other) = default;
     User& operator=(const User& other) = default;
-    
-    // Allow move operations
     User(User&& other) noexcept = default;
     User& operator=(User&& other) noexcept = default;
     
-    // Pure virtual functions
     virtual void displayInfo() const = 0;
     virtual double calculateEarnings() const = 0;
     
-    // Getters
+    // Getters for derived classes to access data
     static int getTotalUsers();
     std::string getUserId() const;
     std::string getName() const;

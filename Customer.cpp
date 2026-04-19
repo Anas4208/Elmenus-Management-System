@@ -1,20 +1,20 @@
 #include "Customer.h"
 #include <iostream>
 
-Customer::Customer() : User(), deliveryAddress_(""), loyaltyPoints_(0) {}
+Customer::Customer() : User(), deliveryAddress_("") {}
 
 Customer::Customer(const std::string& id, const std::string& name, 
-                   const std::string& phone, const std::string& address) 
-    : User(id, name, phone), deliveryAddress_(address), loyaltyPoints_(0) {}
+                   const std::string& phone, const std::string& address)
+    : User(id, name, phone), deliveryAddress_(address) {}
 
 void Customer::displayInfo() const {
-    std::cout << "=== Customer Information ===" << std::endl;
-    std::cout << "ID: " << getUserId() << std::endl;
-    std::cout << "Name: " << getName() << std::endl;
-    std::cout << "Phone: " << getPhoneNumber() << std::endl;
-    std::cout << "Delivery Address: " << deliveryAddress_ << std::endl;
+    std::cout << "\n=== Customer Information ===" << std::endl;
+    std::cout << "ID: " << getUserId() << std::endl;  // Using getter
+    std::cout << "Name: " << getName() << std::endl;  // Using getter
+    std::cout << "Phone: " << getPhoneNumber() << std::endl;  // Using getter
+    std::cout << "Address: " << deliveryAddress_ << std::endl;
     std::cout << "Loyalty Points: " << loyaltyPoints_ << std::endl;
-    std::cout << "============================" << std::endl;
+    std::cout << "===========================" << std::endl;
 }
 
 double Customer::calculateEarnings() const {
@@ -22,9 +22,7 @@ double Customer::calculateEarnings() const {
 }
 
 void Customer::setLoyaltyPoints(int points) {
-    if (points >= 0) {
-        loyaltyPoints_ = points;
-    }
+    loyaltyPoints_ = (points >= 0) ? points : 0;
 }
 
 int Customer::getLoyaltyPoints() const {
