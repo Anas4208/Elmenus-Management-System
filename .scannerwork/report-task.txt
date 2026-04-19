@@ -1,7 +1,0 @@
-organization=anas4208-workspace
-projectKey=anas4208-workspace_anas4208-workspace
-serverUrl=https://sonarcloud.io
-serverVersion=8.0.0.85682
-dashboardUrl=https://sonarcloud.io/dashboard?id=anas4208-workspace_anas4208-workspace
-ceTaskId=AZ2np8gygiKb1QGuesHw
-ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AZ2np8gygiKb1QGuesHw
