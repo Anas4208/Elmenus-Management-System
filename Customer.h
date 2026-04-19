@@ -7,19 +7,18 @@
 class Customer : public User {
 private:
     std::string deliveryAddress_;
-    int loyaltyPoints_{0};
+    int loyaltyPoints_;
     
 public:
     Customer();
     explicit Customer(const std::string& id, const std::string& name, 
                       const std::string& phone, const std::string& address);
+    ~Customer() override;
     
-    // Use default instead of explicit implementations
-    ~Customer() override = default;
-    Customer(const Customer& other) = default;
-    Customer& operator=(const Customer& other) = default;
-    Customer(Customer&& other) noexcept = default;
-    Customer& operator=(Customer&& other) noexcept = default;
+    Customer(const Customer& other);
+    Customer& operator=(const Customer& other);
+    Customer(Customer&& other) noexcept;
+    Customer& operator=(Customer&& other) noexcept;
     
     void displayInfo() const override;
     double calculateEarnings() const override;

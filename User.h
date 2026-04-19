@@ -16,13 +16,13 @@ public:
     explicit User(const std::string& userId, const std::string& name, const std::string& phoneNumber);
     virtual ~User();
     
-    // Copy operations - explicitly defaulted
-    User(const User& other) = default;
-    User& operator=(const User& other) = default;
+    // Explicit copy constructor and assignment operator
+    User(const User& other);
+    User& operator=(const User& other);
     
-    // Move operations - explicitly defaulted
-    User(User&& other) noexcept = default;
-    User& operator=(User&& other) noexcept = default;
+    // Explicit move operations
+    User(User&& other) noexcept;
+    User& operator=(User&& other) noexcept;
     
     virtual void displayInfo() const = 0;
     virtual double calculateEarnings() const = 0;

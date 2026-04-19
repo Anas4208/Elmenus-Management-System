@@ -1,11 +1,40 @@
 #include "Customer.h"
 #include <iostream>
+#include <utility>
 
-Customer::Customer() : User(), deliveryAddress_("") {}
+Customer::Customer() : User(), deliveryAddress_(""), loyaltyPoints_(0) {}
 
 Customer::Customer(const std::string& id, const std::string& name, 
                    const std::string& phone, const std::string& address)
-    : User(id, name, phone), deliveryAddress_(address) {}
+    : User(id, name, phone), deliveryAddress_(address), loyaltyPoints_(0) {}
+
+Customer::~Customer() = default;
+
+Customer::Customer(const Customer& other)
+    : User(other), deliveryAddress_(other.deliveryAddress_), loyaltyPoints_(other.loyaltyPoints_) {}
+
+Customer& Customer::operator=(const Customer& other) {
+    if (this != &other) {
+        User::operator=(other);
+        deliveryAddress_ = other.deliveryAddress_;
+        loyaltyPoints_ = other.loyaltyPoints_;
+    }
+    return *this;
+}
+
+Customer::Customer(Customer&& other) noexcept
+    : User(std::move(other)), 
+      deliveryAddress_(std::move(other.deliveryAddress_)), 
+      loyaltyPoints_(other.loyaltyPoints_) {}
+
+Customer& Customer::operator=(Customer&& other) noexcept {
+    if (this != &other) {
+        User::operator=(std::move(other));
+        deliveryAddress_ = std::move(other.deliveryAddress_);
+        loyaltyPoints_ = other.loyaltyPoints_;
+    }
+    return *this;
+}
 
 void Customer::displayInfo() const {
     std::cout << "\n=== Customer Information ===" << std::endl;
