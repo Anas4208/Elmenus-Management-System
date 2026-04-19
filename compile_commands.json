@@ -1,0 +1,42 @@
+[
+  {
+    "file": "User.cpp",
+    "arguments": [
+      "/usr/bin/g++",
+      "-std=c++11",
+      "-c",
+      "User.cpp"
+    ],
+    "directory": "/Users/Anas/Desktop/Elmenus-System"
+  },
+  {
+    "file": "Customer.cpp",
+    "arguments": [
+      "/usr/bin/g++",
+      "-std=c++11",
+      "-c",
+      "Customer.cpp"
+    ],
+    "directory": "/Users/Anas/Desktop/Elmenus-System"
+  },
+  {
+    "file": "DeliveryDriver.cpp",
+    "arguments": [
+      "/usr/bin/g++",
+      "-std=c++11",
+      "-c",
+      "DeliveryDriver.cpp"
+    ],
+    "directory": "/Users/Anas/Desktop/Elmenus-System"
+  },
+  {
+    "file": "main_working.cpp",
+    "arguments": [
+      "/usr/bin/g++",
+      "-std=c++11",
+      "-c",
+      "main_working.cpp"
+    ],
+    "directory": "/Users/Anas/Desktop/Elmenus-System"
+  }
+]

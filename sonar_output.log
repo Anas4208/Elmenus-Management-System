@@ -1,0 +1,1152 @@
+23:25:35.896 INFO  Scanner configuration file: /opt/homebrew/Cellar/sonar-scanner/8.0.1.6346/libexec/conf/sonar-scanner.properties
+23:25:35.898 INFO  Project root configuration file: /Users/Anas/Desktop/Elmenus-System/sonar-project.properties
+23:25:35.905 INFO  SonarScanner CLI 8.0.1.6346
+23:25:35.906 DEBUG Java 25.0.2 Homebrew (64-bit)
+23:25:35.906 INFO  Mac OS X 26.4.1 aarch64
+23:25:35.910 DEBUG Scanner max available memory: 4 GB
+23:25:35.927 DEBUG uname -m returned 'arm64'
+23:25:35.928 DEBUG Using JVM default truststore: /opt/homebrew/Cellar/openjdk/25.0.2/libexec/openjdk.jdk/Contents/Home/lib/security/cacerts
+23:25:35.929 DEBUG Download cache base directory: /Users/Anas/.sonar/cache
+23:25:35.974 DEBUG Loading OS trusted SSL certificates...
+23:25:35.974 DEBUG This operation might be slow or even get stuck. You can skip it by passing the scanner property 'sonar.scanner.skipSystemTruststore=true'
+23:25:35.990 DEBUG Successfully loaded KeyStore of the type [KeychainStore] having [0] entries
+23:25:36.078 DEBUG Loaded [162] system trusted certificates
+23:25:37.173 DEBUG Loaded truststore from '/opt/homebrew/Cellar/openjdk/25.0.2/libexec/openjdk.jdk/Contents/Home/lib/security/cacerts' containing 109 certificates
+23:25:37.228 INFO  Communicating with SonarQube Cloud
+23:25:37.228 INFO  JRE provisioning: os[macos], arch[arm64]
+23:25:37.229 DEBUG --> GET https://api.sonarcloud.io/analysis/jres?os=macos&arch=arm64
+23:25:37.881 DEBUG <-- 200 https://api.sonarcloud.io/analysis/jres?os=macos&arch=arm64 (651ms)
+23:25:37.904 DEBUG Executing: /Users/Anas/.sonar/cache/1f7f6506b598e85d7d8ff8b36563d98657d2d81b16bfca3cd242d7906cfbd11b/OpenJDK21U-jre_aarch64_mac_hotspot_21.0.9_10.tar.gz_extracted/jdk-21.0.9+10-jre/Contents/Home/bin/java --version
+23:25:38.008 DEBUG openjdk 21.0.9 2025-10-21 LTS
+23:25:38.008 DEBUG OpenJDK Runtime Environment Temurin-21.0.9+10 (build 21.0.9+10-LTS)
+23:25:38.008 DEBUG OpenJDK 64-Bit Server VM Temurin-21.0.9+10 (build 21.0.9+10-LTS, mixed mode, sharing)
+23:25:38.013 DEBUG --> GET https://api.sonarcloud.io/analysis/engine
+23:25:38.144 DEBUG <-- 200 https://api.sonarcloud.io/analysis/engine (130ms)
+23:25:38.146 DEBUG Work directory: /Users/Anas/Desktop/Elmenus-System/.scannerwork
+23:25:38.151 DEBUG Executing: /Users/Anas/.sonar/cache/1f7f6506b598e85d7d8ff8b36563d98657d2d81b16bfca3cd242d7906cfbd11b/OpenJDK21U-jre_aarch64_mac_hotspot_21.0.9_10.tar.gz_extracted/jdk-21.0.9+10-jre/Contents/Home/bin/java -Dorg.bouncycastle.pkcs12.ignore_useless_passwd=true -jar /Users/Anas/.sonar/cache/c7db4da4e86aac21e05184379d2278d2c7b74ef7f960790995c7aaa9f90fa21a/sonarcloud-scanner-engine-12.25.0.2810-all.jar
+23:25:38.320 INFO  Starting SonarScanner Engine...
+23:25:38.321 INFO  Java 21.0.9 Eclipse Adoptium (64-bit)
+23:25:38.350 DEBUG JVM max available memory: 4 GB
+23:25:38.488 DEBUG Sonar User Home: /Users/Anas/.sonar
+23:25:38.491 DEBUG Initialize DefaultScannerWsClient
+23:25:38.535 DEBUG Loading OS trusted SSL certificates...
+23:25:38.535 DEBUG This operation might be slow or even get stuck. You can skip it by passing the scanner property 'sonar.scanner.skipSystemTruststore=true'
+23:25:38.546 DEBUG Successfully loaded KeyStore of the type [KeychainStore] having [0] entries
+23:25:38.631 DEBUG Loaded [162] system trusted certificates
+23:25:39.730 DEBUG Loaded truststore from '/opt/homebrew/Cellar/openjdk/25.0.2/libexec/openjdk.jdk/Contents/Home/lib/security/cacerts' containing 109 certificates
+23:25:39.811 INFO  Load global settings
+23:25:39.817 DEBUG --> GET https://sonarcloud.io/api/settings/values.protobuf
+23:25:40.326 DEBUG <-- 200 https://sonarcloud.io/api/settings/values.protobuf (507ms, unknown-length body)
+23:25:40.355 INFO  Load global settings (done) | time=541ms
+23:25:40.405 INFO  Server id: 1BD809FA-AWHW8ct9-T_TB3XqouNu
+23:25:40.408 DEBUG Initialize DownloadPluginsScannerWsClient
+23:25:40.409 DEBUG Loading OS trusted SSL certificates...
+23:25:40.409 DEBUG This operation might be slow or even get stuck. You can skip it by passing the scanner property 'sonar.scanner.skipSystemTruststore=true'
+23:25:40.411 DEBUG Successfully loaded KeyStore of the type [KeychainStore] having [0] entries
+23:25:40.481 DEBUG Loaded [162] system trusted certificates
+23:25:40.494 DEBUG Loaded truststore from '/opt/homebrew/Cellar/openjdk/25.0.2/libexec/openjdk.jdk/Contents/Home/lib/security/cacerts' containing 109 certificates
+23:25:40.497 DEBUG User cache: /Users/Anas/.sonar/cache
+23:25:40.501 INFO  Loading required plugins
+23:25:40.501 INFO  Load plugins index
+23:25:40.501 DEBUG --> GET https://sonarcloud.io/api/plugins/installed
+23:25:40.586 DEBUG <-- 200 https://sonarcloud.io/api/plugins/installed (84ms, unknown-length body)
+23:25:40.596 INFO  Load plugins index (done) | time=95ms
+23:25:40.597 INFO  Load/download plugins
+23:25:40.630 INFO  Load/download plugins (done) | time=33ms
+23:25:40.630 DEBUG Plugins not loaded because they are optional: [abap, sonarapex, architecture, architecturejavascriptfrontend, architecturepythonfrontend, architecturecsharpfrontend, architecturejavafrontend, csharpenterprise, cpp, cobol, cvereachability, dart, dbd, dbdjavafrontend, dbdpythonfrontend, dre, flex, go, web, jcl, jacoco, javasymbolicexecution, java, javaa3scontextcollector, javascript, kotlin, php, pli, plsql, python, rpg, ruby, rust, sonarscala, jasmin, swift, tsql, vbnetenterprise, vb, security, securitycsharpfrontend, securitygofrontend, securityjavafrontend, securitykotlinfrontend, securityphpfrontend, securitypythonfrontend, securityvbnetfrontend, xml]
+23:25:40.662 DEBUG Plugins loaded:
+23:25:40.662 DEBUG   * Text Code Quality and Security 2.42.0.10784 (textenterprise)
+23:25:40.663 DEBUG   * IaC Code Quality and Security 2.8.0.19776 (iac)
+23:25:40.664 DEBUG --> GET https://sonarcloud.io/api/server/version
+23:25:40.749 DEBUG <-- 200 https://sonarcloud.io/api/server/version (85ms, 11-byte body)
+23:25:40.750 DEBUG Updated analysis started with a difference of 70 milliseconds
+23:25:40.754 DEBUG Started at Sun Apr 19 23:25:40 EET 2026
+23:25:40.771 INFO  Loaded core extensions: sca, a3s, architecture
+23:25:40.774 DEBUG Installed scanner extension: sca
+23:25:40.774 DEBUG Installed scanner extension: a3s
+23:25:40.774 DEBUG Installed scanner extension: architecture
+23:25:40.812 DEBUG register org.eclipse.jgit.util.FS$FileStoreAttributes$$Lambda/0x00000070013ae450@5b3bb1f7 with shutdown hook
+23:25:40.880 INFO  Process project properties
+23:25:40.888 DEBUG Process project properties (done) | time=7ms
+23:25:40.895 INFO  Project key: anas4208-workspace_anas4208-workspace
+23:25:40.896 INFO  Base dir: /Users/Anas/Desktop/Elmenus-System
+23:25:40.896 INFO  Working dir: /Users/Anas/Desktop/Elmenus-System/.scannerwork
+23:25:40.896 DEBUG Project global encoding: UTF-8, default locale: en_EG
+23:25:40.901 DEBUG Could not detect any CI vendor
+23:25:40.902 INFO  Load project branches
+23:25:40.902 DEBUG --> GET https://sonarcloud.io/api/project_branches/list?project=anas4208-workspace_anas4208-workspace
+23:25:41.400 DEBUG <-- 200 https://sonarcloud.io/api/project_branches/list?project=anas4208-workspace_anas4208-workspace (496ms, unknown-length body)
+23:25:41.422 INFO  Load project branches (done) | time=519ms
+23:25:41.427 INFO  Load project settings for component key: 'anas4208-workspace_anas4208-workspace'
+23:25:41.427 DEBUG --> GET https://sonarcloud.io/api/settings/values.protobuf?component=anas4208-workspace_anas4208-workspace
+23:25:41.784 DEBUG <-- 200 https://sonarcloud.io/api/settings/values.protobuf?component=anas4208-workspace_anas4208-workspace (355ms, unknown-length body)
+23:25:41.787 INFO  Load project settings for component key: 'anas4208-workspace_anas4208-workspace' (done) | time=358ms
+23:25:41.803 DEBUG Initialize DomainApiWsClient
+23:25:41.803 DEBUG Loading OS trusted SSL certificates...
+23:25:41.804 DEBUG This operation might be slow or even get stuck. You can skip it by passing the scanner property 'sonar.scanner.skipSystemTruststore=true'
+23:25:41.810 DEBUG Successfully loaded KeyStore of the type [KeychainStore] having [0] entries
+23:25:41.896 DEBUG Loaded [162] system trusted certificates
+23:25:41.906 DEBUG Loaded truststore from '/opt/homebrew/Cellar/openjdk/25.0.2/libexec/openjdk.jdk/Contents/Home/lib/security/cacerts' containing 109 certificates
+23:25:41.910 DEBUG Request URL: https://api.sonarcloud.io/feature-flags-provisioning/feature-flags
+23:25:41.910 DEBUG --> GET https://api.sonarcloud.io/feature-flags-provisioning/feature-flags?organizationKey=anas4208-workspace
+23:25:42.144 DEBUG <-- 200 https://api.sonarcloud.io/feature-flags-provisioning/feature-flags?organizationKey=anas4208-workspace (233ms, 724-byte body)
+23:25:42.150 DEBUG Response: FeatureFlagResponse[featureFlags={design-architecture-squad-enable-advanced=true, security-engine-squad-enable-frontend-telemetry=true, security-insights-enable-asast-vbnet=true, cfamily-configure-shallow-mode-threshold=0, cloud-security-enable-generic-yaml-and-json-analyzer=false, sca-enable-reachability=true, analysis-processing-allow-entitlements-call=true, security-insights-enable-asast-csharp=true, security-insights-enable-asast-java=true, security-insights-enable-asast-python=true, cfamily-configure-shallow-mode-max-steps=10000, mobile-security-use-deprecated-swift-analyzer=false, design-architecture-squad-enable-basic=true, sca-enable-autoscan=true, analysis-processing-a3s-ci-context-collector-enabled=false}]
+23:25:42.152 DEBUG --> GET https://api.sonarcloud.io/architecture/project-configurations?projectId=bb755ae2-8a74-495e-b989-7ff22a884d46
+23:25:42.396 DEBUG <-- 200 https://api.sonarcloud.io/architecture/project-configurations?projectId=bb755ae2-8a74-495e-b989-7ff22a884d46 (242ms, 70-byte body)
+23:25:42.408 INFO  Check ALM binding of project 'anas4208-workspace_anas4208-workspace'
+23:25:42.409 DEBUG --> GET https://sonarcloud.io/api/alm_integration/is_project_bound?project=anas4208-workspace_anas4208-workspace
+23:25:42.626 DEBUG <-- 200 https://sonarcloud.io/api/alm_integration/is_project_bound?project=anas4208-workspace_anas4208-workspace (216ms, unknown-length body)
+23:25:42.629 INFO  Detected project binding: NOT_BOUND
+23:25:42.630 INFO  Check ALM binding of project 'anas4208-workspace_anas4208-workspace' (done) | time=222ms
+23:25:42.637 INFO  Load project pull requests
+23:25:42.638 DEBUG --> GET https://sonarcloud.io/api/project_pull_requests/list?project=anas4208-workspace_anas4208-workspace
+23:25:42.872 DEBUG <-- 200 https://sonarcloud.io/api/project_pull_requests/list?project=anas4208-workspace_anas4208-workspace (233ms, unknown-length body)
+23:25:42.874 INFO  Load project pull requests (done) | time=237ms
+23:25:42.878 INFO  Load branch configuration
+23:25:42.879 INFO  Load branch configuration (done) | time=0ms
+23:25:42.881 DEBUG Creating module hierarchy
+23:25:42.881 DEBUG   Init module 'Elmenus Management System'
+23:25:42.882 DEBUG     Base dir: /Users/Anas/Desktop/Elmenus-System
+23:25:42.882 DEBUG     Working dir: /Users/Anas/Desktop/Elmenus-System/.scannerwork
+23:25:42.882 DEBUG     Module global encoding: UTF-8, default locale: en_EG
+23:25:42.886 INFO  Load quality profiles
+23:25:42.887 DEBUG --> GET https://sonarcloud.io/api/qualityprofiles/search.protobuf?projectKey=anas4208-workspace_anas4208-workspace&organization=anas4208-workspace
+23:25:43.219 DEBUG <-- 200 https://sonarcloud.io/api/qualityprofiles/search.protobuf?projectKey=anas4208-workspace_anas4208-workspace&organization=anas4208-workspace (331ms, 5783-byte body)
+23:25:43.239 INFO  Load quality profiles (done) | time=352ms
+23:25:43.262 INFO  Create analysis
+23:25:43.266 DEBUG Create analysis with parameters CreateAnalysisRequest[organizationKey=anas4208-workspace, projectKey=anas4208-workspace_anas4208-workspace, projectVersion=2.0, branchName=null, pullRequestKey=null, referenceBranchId=null, analysisId=null]
+23:25:43.267 DEBUG --> POST https://api.sonarcloud.io/analysis/analyses (116-byte body)
+23:25:43.632 DEBUG <-- 201 https://api.sonarcloud.io/analysis/analyses (364ms, 348-byte body)
+23:25:43.661 DEBUG Created analysis Analysis[uuid=11ea422f-ca44-4555-a4c6-5e868652002f, branchId=bb755ae2-8a74-495e-b989-7ff22a884d46, branchType=long, newCodePeriod=NewCodePeriod[type=days, value=90, analysisDate=1776544406155, analysisId=7e8377c7-1aa5-48eb-823f-1b0db4aab419], organizationId=d49a3b80-fd26-4658-9e45-f69c58b62cfe]
+23:25:43.661 INFO  Create analysis (done) | time=398ms
+23:25:43.667 INFO  Load active rules
+23:25:43.668 DEBUG --> GET https://api.sonarcloud.io/analysis/active-rules?organization=anas4208-workspace&project=anas4208-workspace_anas4208-workspace&f=-name
+23:25:44.124 DEBUG <-- 200 https://api.sonarcloud.io/analysis/active-rules?organization=anas4208-workspace&project=anas4208-workspace_anas4208-workspace&f=-name (455ms, unknown-length body)
+23:25:44.476 INFO  Load active rules (done) | time=809ms
+23:25:44.495 DEBUG loading config FileBasedConfig[/Users/Anas/.config/jgit/config]
+23:25:44.495 DEBUG readpipe [bash, --login, -c, which git],/Users/Anas
+23:25:44.510 DEBUG readpipe may return '/usr/bin/git'
+23:25:44.510 DEBUG remaining output:
+
+23:25:44.510 DEBUG readpipe [xcode-select, -p],/Users/Anas
+23:25:44.516 DEBUG readpipe may return '/Library/Developer/CommandLineTools'
+23:25:44.516 DEBUG remaining output:
+
+23:25:44.516 DEBUG readpipe [/usr/bin/git, --version],/usr/bin
+23:25:44.530 DEBUG readpipe may return 'git version 2.50.1 (Apple Git-155)'
+23:25:44.530 DEBUG remaining output:
+
+23:25:44.530 DEBUG readpipe [/usr/bin/git, config, --system, --show-origin, --list, -z],/usr/bin
+23:25:44.542 DEBUG readpipe may return 'null'
+23:25:44.542 DEBUG remaining output:
+
+23:25:44.569 DEBUG readpipe rc=128
+23:25:44.569 DEBUG Exception caught during execution of command '[/usr/bin/git, config, --system, --show-origin, --list, -z]' in '/usr/bin', return code '128', error message 'fatal: unable to read config file '/etc/gitconfig': No such file or directory
+'
+23:25:44.569 DEBUG loading config FileBasedConfig[/Users/Anas/.config/git/config]
+23:25:44.569 DEBUG loading config UserConfigFile[/Users/Anas/.gitconfig]
+23:25:44.579 DEBUG Git remote origin URL telemetry: https://github.com/Anas4208/Elmenus-Management-System.git
+23:25:44.579 DEBUG SCM detection: git
+23:25:44.580 DEBUG --> GET https://sonarcloud.io/api/languages/list
+23:25:44.712 DEBUG <-- 200 https://sonarcloud.io/api/languages/list (132ms, unknown-length body)
+23:25:44.726 INFO  Organization key: anas4208-workspace
+23:25:44.728 DEBUG Declared patterns of language Kubernetes were converted to sonar.lang.patterns.kubernetes : 
+23:25:44.728 DEBUG Declared patterns of language CSS were converted to sonar.lang.patterns.css : **/*.css,**/*.less,**/*.scss,**/*.sass
+23:25:44.728 DEBUG Declared patterns of language Scala were converted to sonar.lang.patterns.scala : **/*.scala
+23:25:44.728 DEBUG Declared patterns of language JSP were converted to sonar.lang.patterns.jsp : **/*.jsp,**/*.jspf,**/*.jspx
+23:25:44.729 DEBUG Declared patterns of language JavaScript were converted to sonar.lang.patterns.js : **/*.js,**/*.jsx,**/*.cjs,**/*.mjs,**/*.vue
+23:25:44.729 DEBUG Declared patterns of language Python were converted to sonar.lang.patterns.py : **/*.py
+23:25:44.729 DEBUG Declared patterns of language Ansible were converted to sonar.lang.patterns.ansible : 
+23:25:44.729 DEBUG Declared patterns of language Apex were converted to sonar.lang.patterns.apex : **/*.cls,**/*.trigger
+23:25:44.729 DEBUG Declared patterns of language Docker were converted to sonar.lang.patterns.docker : **/*.dockerfile,**/Dockerfile,**/dockerfile
+23:25:44.729 DEBUG Declared patterns of language PL/SQL were converted to sonar.lang.patterns.plsql : **/*.sql,**/*.tab,**/*.pkb
+23:25:44.730 DEBUG Declared patterns of language Dart were converted to sonar.lang.patterns.dart : **/*.dart
+23:25:44.730 DEBUG Declared patterns of language Rust were converted to sonar.lang.patterns.rust : **/*.rs
+23:25:44.730 DEBUG Declared patterns of language JCL were converted to sonar.lang.patterns.jcl : **/*.jcl
+23:25:44.730 DEBUG Declared patterns of language Java were converted to sonar.lang.patterns.java : **/*.java,**/*.jav
+23:25:44.730 DEBUG Declared patterns of language HTML were converted to sonar.lang.patterns.web : **/*.html,**/*.xhtml,**/*.cshtml,**/*.vbhtml,**/*.aspx,**/*.ascx,**/*.rhtml,**/*.erb,**/*.shtm,**/*.shtml,**/*.cmp,**/*.twig,**/*.htm
+23:25:44.730 DEBUG Declared patterns of language Flex were converted to sonar.lang.patterns.flex : **/*.as
+23:25:44.730 DEBUG Declared patterns of language XML were converted to sonar.lang.patterns.xml : **/*.xml,**/*.xsd,**/*.xsl,**/*.config
+23:25:44.730 DEBUG Declared patterns of language JSON were converted to sonar.lang.patterns.json : **/*.json
+23:25:44.730 DEBUG Declared patterns of language IPython Notebooks were converted to sonar.lang.patterns.ipynb : **/*.ipynb
+23:25:44.730 DEBUG Declared patterns of language Text were converted to sonar.lang.patterns.text : 
+23:25:44.730 DEBUG Declared patterns of language Azure Pipelines were converted to sonar.lang.patterns.azurepipelines : 
+23:25:44.730 DEBUG Declared patterns of language VB.NET were converted to sonar.lang.patterns.vbnet : **/*.vb
+23:25:44.730 DEBUG Declared patterns of language CloudFormation were converted to sonar.lang.patterns.cloudformation : 
+23:25:44.730 DEBUG Declared patterns of language Swift were converted to sonar.lang.patterns.swift : **/*.swift
+23:25:44.730 DEBUG Declared patterns of language YAML were converted to sonar.lang.patterns.yaml : **/*.yaml,**/*.yml
+23:25:44.731 DEBUG Declared patterns of language C++ were converted to sonar.lang.patterns.cpp : **/*.cc,**/*.cpp,**/*.cxx,**/*.c++,**/*.hh,**/*.hpp,**/*.hxx,**/*.h++,**/*.ipp,**/*.ixx,**/*.mxx,**/*.cppm,**/*.ccm,**/*.cxxm,**/*.c++m
+23:25:44.731 DEBUG Declared patterns of language C were converted to sonar.lang.patterns.c : **/*.c,**/*.h
+23:25:44.731 DEBUG Declared patterns of language Go were converted to sonar.lang.patterns.go : **/*.go
+23:25:44.731 DEBUG Declared patterns of language Kotlin were converted to sonar.lang.patterns.kotlin : **/*.kt,**/*.kts
+23:25:44.731 DEBUG Declared patterns of language RPG were converted to sonar.lang.patterns.rpg : **/*.rpg,**/*.rpgle,**/*.sqlrpgle,**/*.rpg,**/*.rpgle,**/*.sqlrpgle
+23:25:44.731 DEBUG Declared patterns of language PL/I were converted to sonar.lang.patterns.pli : **/*.pli
+23:25:44.731 DEBUG Declared patterns of language T-SQL were converted to sonar.lang.patterns.tsql : **/*.tsql
+23:25:44.731 DEBUG Declared patterns of language Vb were converted to sonar.lang.patterns.vb : **/*.bas,**/*.frm,**/*.ctl
+23:25:44.731 DEBUG Declared patterns of language Secrets were converted to sonar.lang.patterns.secrets : 
+23:25:44.731 DEBUG Declared patterns of language Ruby were converted to sonar.lang.patterns.ruby : **/*.rb
+23:25:44.731 DEBUG Declared patterns of language C# were converted to sonar.lang.patterns.cs : **/*.cs,**/*.razor
+23:25:44.731 DEBUG Declared patterns of language Groovy were converted to sonar.lang.patterns.groovy : **/*.groovy,**/*.gvy,**/*.gy,**/*.gsh,**/*Jenkinsfile
+23:25:44.731 DEBUG Declared patterns of language COBOL were converted to sonar.lang.patterns.cobol : 
+23:25:44.731 DEBUG Declared patterns of language Shell were converted to sonar.lang.patterns.shell : **/*.sh,**/*.bash
+23:25:44.731 DEBUG Declared patterns of language PHP were converted to sonar.lang.patterns.php : **/*.php,**/*.php3,**/*.php4,**/*.php5,**/*.phtml,**/*.inc
+23:25:44.732 DEBUG Declared patterns of language Terraform were converted to sonar.lang.patterns.terraform : **/*.tf
+23:25:44.732 DEBUG Declared patterns of language Azure Resource Manager were converted to sonar.lang.patterns.azureresourcemanager : **/*.bicep
+23:25:44.732 DEBUG Declared patterns of language ABAP were converted to sonar.lang.patterns.abap : **/*.abap,**/*.ab4,**/*.flow,**/*.asprog
+23:25:44.732 DEBUG Declared patterns of language GitHub Actions were converted to sonar.lang.patterns.githubactions : 
+23:25:44.732 DEBUG Declared patterns of language Objective-C were converted to sonar.lang.patterns.objc : **/*.m
+23:25:44.732 DEBUG Declared patterns of language TypeScript were converted to sonar.lang.patterns.ts : **/*.ts,**/*.tsx,**/*.cts,**/*.mts
+23:25:44.736 INFO  Preprocessing files...
+23:25:44.747 DEBUG 73 non excluded files in this Git repository
+23:25:44.810 INFO  2 languages detected in 9 preprocessed files (done) | time=74ms
+23:25:44.810 INFO  130 files ignored because of inclusion/exclusion patterns
+23:25:44.810 INFO  0 files ignored because of scm ignore settings
+23:25:44.821 DEBUG Could not detect the node.js version.
+23:25:44.823 INFO  Loading plugins for detected languages
+23:25:44.823 DEBUG Detected languages: [cpp, c]
+23:25:44.823 INFO  Load/download plugins
+23:25:44.825 INFO  Load/download plugins (done) | time=2ms
+23:25:44.825 DEBUG Optional language-specific plugins not loaded: [abap, sonarapex, architecture, architecturejavascriptfrontend, architecturepythonfrontend, architecturecsharpfrontend, architecturejavafrontend, csharpenterprise, cobol, cvereachability, dart, dbd, dbdjavafrontend, dbdpythonfrontend, dre, flex, go, web, jcl, jacoco, javasymbolicexecution, java, javaa3scontextcollector, javascript, kotlin, php, pli, plsql, python, rpg, ruby, rust, sonarscala, jasmin, swift, tsql, vbnetenterprise, vb, security, securitycsharpfrontend, securitygofrontend, securityjavafrontend, securitykotlinfrontend, securityphpfrontend, securitypythonfrontend, securityvbnetfrontend, xml]
+23:25:44.827 DEBUG Plugins loaded:
+23:25:44.827 DEBUG   * CFamily Code Quality and Security 6.80.0.98490 (cpp)
+23:25:44.854 INFO  Load project repositories
+23:25:44.854 DEBUG --> GET https://sonarcloud.io/batch/project.protobuf?key=anas4208-workspace_anas4208-workspace
+23:25:44.995 DEBUG <-- 200 https://sonarcloud.io/batch/project.protobuf?key=anas4208-workspace_anas4208-workspace (140ms, 469-byte body)
+23:25:44.999 INFO  Load project repositories (done) | time=145ms
+23:25:45.004 INFO  Indexing files...
+23:25:45.004 INFO  Project configuration:
+23:25:45.004 INFO    Included sources: **/*.cpp, **/*.h
+23:25:45.004 INFO    Excluded sources: **/*.o, **/main, **/*.gcda, **/*.gcno, **/*.gcov, **/build-wrapper-*, **/build-wrapper-dump.json
+23:25:45.006 DEBUG 'DeliveryDriver.cpp' indexed with language 'cpp'
+23:25:45.006 DEBUG 'DeliveryDriver.h' indexed with language 'c'
+23:25:45.006 DEBUG 'Customer.cpp' indexed with language 'cpp'
+23:25:45.006 DEBUG 'Customer.h' indexed with language 'c'
+23:25:45.006 DEBUG 'User.h' indexed with language 'c'
+23:25:45.006 DEBUG 'main_simple.cpp' indexed with language 'cpp'
+23:25:45.007 DEBUG 'User.cpp' indexed with language 'cpp'
+23:25:45.007 DEBUG 'main.cpp' indexed with language 'cpp'
+23:25:45.007 DEBUG 'main_working.cpp' indexed with language 'cpp'
+23:25:45.007 INFO  9 files indexed (done) | time=2ms
+23:25:45.010 DEBUG Available languages:
+23:25:45.010 DEBUG   * C => "c"
+23:25:45.010 DEBUG   * C++ => "cpp"
+23:25:45.011 DEBUG   * Objective-C => "objc"
+23:25:45.011 DEBUG   * Secrets => "secrets"
+23:25:45.011 DEBUG   * Text => "text"
+23:25:45.011 DEBUG   * Terraform => "terraform"
+23:25:45.011 DEBUG   * CloudFormation => "cloudformation"
+23:25:45.011 DEBUG   * Kubernetes => "kubernetes"
+23:25:45.011 DEBUG   * Docker => "docker"
+23:25:45.011 DEBUG   * Azure Resource Manager => "azureresourcemanager"
+23:25:45.011 DEBUG   * YAML => "yaml"
+23:25:45.011 DEBUG   * JSON => "json"
+23:25:45.011 DEBUG   * Ansible => "ansible"
+23:25:45.011 DEBUG   * GitHub Actions => "githubactions"
+23:25:45.012 DEBUG   * Azure Pipelines => "azurepipelines"
+23:25:45.012 DEBUG   * Shell => "shell"
+23:25:45.012 INFO  Quality profile for c: Sonar way
+23:25:45.012 INFO  Quality profile for cpp: Sonar way
+23:25:45.012 INFO  ------------- Run sensors on module Elmenus Management System
+23:25:45.030 INFO  Load metrics repository
+23:25:45.030 DEBUG --> GET https://sonarcloud.io/api/metrics/search?f=name,description,direction,qualitative&ps=500&p=1
+23:25:45.118 DEBUG <-- 200 https://sonarcloud.io/api/metrics/search?f=name,description,direction,qualitative&ps=500&p=1 (88ms, unknown-length body)
+23:25:45.121 INFO  Load metrics repository (done) | time=91ms
+23:25:45.124 INFO  Sensor cache enabled
+23:25:45.126 INFO  Load sensor cache
+23:25:45.126 DEBUG --> GET https://api.sonarcloud.io/analysis/sensor-cache/prepare-read?organization=anas4208-workspace&project=anas4208-workspace_anas4208-workspace
+23:25:45.515 DEBUG <-- 200 https://api.sonarcloud.io/analysis/sensor-cache/prepare-read?organization=anas4208-workspace&project=anas4208-workspace_anas4208-workspace (387ms, unknown-length body)
+23:25:45.551 DEBUG --> GET https://analysis-sensorcache-eu-central-1-prod.s3.eu-central-1.amazonaws.com/AZ2iPos4kF4Bz7UfeEe_/AZ2iPxQTkF4Bz7UfeEgH/AZ2iPxQTkF4Bz7UfeEgH?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEEQaDGV1LWNlbnRyYWwtMSJGMEQCIH%2Fco2xXjJpl12KcP9iZcMFrdn1vW%2FmOZNdpeySYmv4vAiBws2BsXuKNkZhHGCtCh2IUIFknzSehMA3UAd2p4Rw74yq0BAgNEAMaDDQ4ODA1OTk2NTYzNSIMAxQ9lYkbeZUr%2B5QQKpEE1ItmKFvCshdLGgeMXBAyPHgDhw1%2FBU9il5kZox9rPBzewvzF6KZ4KY8VglJ50OEDSdLrXRjLuXQh5w0lgPsZERougDNPHcUVfOAUcH9qKjI%2FgH0fWwtv47qSfoWkTaWngoAqfxognms2fv46Tk0%2BD%2FrwXJT7hvhDYEAt0grKtRV2J3C77VnXZsVoI1%2FSXQesHjPihNztlWPh0VVZHbkjYZiJ9yUJqivVct2uPEViQX66IcBndTjQYo3HRuH3uT0CICrSQYsVgDuj%2BrmD6Zl%2FhpOVHGV5CvmtdqpGMaUQBMg9ogzqRlvg6tllGDSOAwwKAlsNZHdni%2B2%2FugcoN3tIKDdeYLd%2Bhl7fdCExiNE2P6qg14s6%2BT4KbRxPaE7wmIzAbnPd5lGFiFbFbRe522KnC6VxKPKmDvhcthsaR00Db%2FA1xB3m7VIkrk98u4ys5BiJlWqFMzOw1luGoMSY9%2FmYM%2BHY50n92emY7i1HvNkTpzqAPRZ3CoQ3ak%2FN%2FFd9%2BPeikXrIInL0sPB0ZQSMfxmCAGhLSfsz1fI34pynNQiEELDGoKzE9ASFDuPRvh7GHEiRq80Z2GEt9VLfsXwPhynuPReTMe2Do%2BSHNvTVCdhG4Os%2FSDHQl4wsxRuKFPlDwoYb4vLkJD2pPav7Wd8p%2BrzDd%2FJOj6MB5ZSpuJU6Igij3dxA6%2BoPGXV3wHdqttsrv5DnlzCI5pTPBjqjAcrPvh37rxz7ApcNYkL8hjQ3FIKPCbPNSzghntpXgEnejzYUlTWKr%2B5Y8AX4l4hTJlLqlYhWDzufwKDqNsv%2FWFTSGr0%2BLsN6TxYTvvKu0cQ34nhI9eYHGCenF%2BP3%2FELkK0xJgqgbzjyQGWaCFT9LpGfBsVIW0%2FCphOBluqje5UbwH9PuEU%2F2x%2BcOYCfM1OdQFSk8HaXxYsC4aK7SwT1mmEvVcsQ%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260419T212545Z&X-Amz-SignedHeaders=host&X-Amz-Credential=ASIAXDIVECDB5K5BAO5U%2F20260419%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=900&X-Amz-Signature=3049880e419f36f63a18f23daabdd04fba4d82bb5256b8087e6a4025d57aa3de
+23:25:47.059 DEBUG <-- 200 OK https://analysis-sensorcache-eu-central-1-prod.s3.eu-central-1.amazonaws.com/AZ2iPos4kF4Bz7UfeEe_/AZ2iPxQTkF4Bz7UfeEgH/AZ2iPxQTkF4Bz7UfeEgH?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEEQaDGV1LWNlbnRyYWwtMSJGMEQCIH%2Fco2xXjJpl12KcP9iZcMFrdn1vW%2FmOZNdpeySYmv4vAiBws2BsXuKNkZhHGCtCh2IUIFknzSehMA3UAd2p4Rw74yq0BAgNEAMaDDQ4ODA1OTk2NTYzNSIMAxQ9lYkbeZUr%2B5QQKpEE1ItmKFvCshdLGgeMXBAyPHgDhw1%2FBU9il5kZox9rPBzewvzF6KZ4KY8VglJ50OEDSdLrXRjLuXQh5w0lgPsZERougDNPHcUVfOAUcH9qKjI%2FgH0fWwtv47qSfoWkTaWngoAqfxognms2fv46Tk0%2BD%2FrwXJT7hvhDYEAt0grKtRV2J3C77VnXZsVoI1%2FSXQesHjPihNztlWPh0VVZHbkjYZiJ9yUJqivVct2uPEViQX66IcBndTjQYo3HRuH3uT0CICrSQYsVgDuj%2BrmD6Zl%2FhpOVHGV5CvmtdqpGMaUQBMg9ogzqRlvg6tllGDSOAwwKAlsNZHdni%2B2%2FugcoN3tIKDdeYLd%2Bhl7fdCExiNE2P6qg14s6%2BT4KbRxPaE7wmIzAbnPd5lGFiFbFbRe522KnC6VxKPKmDvhcthsaR00Db%2FA1xB3m7VIkrk98u4ys5BiJlWqFMzOw1luGoMSY9%2FmYM%2BHY50n92emY7i1HvNkTpzqAPRZ3CoQ3ak%2FN%2FFd9%2BPeikXrIInL0sPB0ZQSMfxmCAGhLSfsz1fI34pynNQiEELDGoKzE9ASFDuPRvh7GHEiRq80Z2GEt9VLfsXwPhynuPReTMe2Do%2BSHNvTVCdhG4Os%2FSDHQl4wsxRuKFPlDwoYb4vLkJD2pPav7Wd8p%2BrzDd%2FJOj6MB5ZSpuJU6Igij3dxA6%2BoPGXV3wHdqttsrv5DnlzCI5pTPBjqjAcrPvh37rxz7ApcNYkL8hjQ3FIKPCbPNSzghntpXgEnejzYUlTWKr%2B5Y8AX4l4hTJlLqlYhWDzufwKDqNsv%2FWFTSGr0%2BLsN6TxYTvvKu0cQ34nhI9eYHGCenF%2BP3%2FELkK0xJgqgbzjyQGWaCFT9LpGfBsVIW0%2FCphOBluqje5UbwH9PuEU%2F2x%2BcOYCfM1OdQFSk8HaXxYsC4aK7SwT1mmEvVcsQ%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260419T212545Z&X-Amz-SignedHeaders=host&X-Amz-Credential=ASIAXDIVECDB5K5BAO5U%2F20260419%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=900&X-Amz-Signature=3049880e419f36f63a18f23daabdd04fba4d82bb5256b8087e6a4025d57aa3de (1505ms, 54105-byte body)
+23:25:47.230 INFO  Load sensor cache (52 KB) | time=2102ms
+23:25:47.250 DEBUG Fetching entitlements from: https://api.sonarcloud.io/billing/entitlements
+23:25:47.251 DEBUG --> GET https://api.sonarcloud.io/billing/entitlements?resourceId=d49a3b80-fd26-4658-9e45-f69c58b62cfe&resourceType=organization
+23:25:47.687 DEBUG <-- 200 https://api.sonarcloud.io/billing/entitlements?resourceId=d49a3b80-fd26-4658-9e45-f69c58b62cfe&resourceType=organization (436ms, 167-byte body)
+23:25:47.878 DEBUG 'Import external issues report' skipped because of missing configuration requirements.
+Accessed configuration:
+- sonar.externalIssuesReportPaths: <empty>
+23:25:47.878 DEBUG 'IaC Terraform Sensor' skipped because there is no related file in current project
+23:25:47.878 DEBUG 'IaC TFLint report Sensor' skipped because there is no related file in current project
+23:25:47.878 DEBUG 'IaC CloudFormation Sensor' skipped because there is no related file in current project
+23:25:47.879 DEBUG 'IaC cfn-lint report Sensor' skipped because there is no related file in current project
+23:25:47.879 DEBUG 'IaC Kustomization Sensor' skipped because there is no related file in current project
+23:25:47.879 DEBUG 'IaC Azure Resource Manager Sensor' skipped because there is no related file in current project
+23:25:47.879 DEBUG 'IaC Ansible Sensor' skipped because there is no related file in current project
+23:25:47.879 DEBUG 'IaC ansible-lint report Sensor' skipped because there is no related file in current project
+23:25:47.879 DEBUG 'IaC spectral report Sensor' skipped because there is no related file in current project
+23:25:47.879 DEBUG 'IaC Azure Pipelines Sensor' skipped because there is no related file in current project
+23:25:47.879 DEBUG 'IaC Kubernetes Sensor' skipped because there is no related file in current project
+23:25:47.879 DEBUG 'IaC YAML Sensor' skipped because there is no related file in current project
+23:25:47.879 DEBUG 'IaC JSON Sensor' skipped because there is no related file in current project
+23:25:47.880 DEBUG 'Generic Coverage Report' skipped because of missing configuration requirements.
+Accessed configuration:
+- sonar.genericcoverage.reportPath: <empty>
+- sonar.genericcoverage.itReportPaths: <empty>
+- sonar.coverageReportPaths: <empty>
+- sonar.genericcoverage.reportPaths: <empty>
+- sonar.genericcoverage.overallReportPaths: <empty>
+- sonar.externalIssuesReportPaths: <empty>
+23:25:47.880 DEBUG 'Generic Test Executions Report' skipped because of missing configuration requirements.
+Accessed configuration:
+- sonar.genericcoverage.reportPath: <empty>
+- sonar.genericcoverage.itReportPaths: <empty>
+- sonar.coverageReportPaths: <empty>
+- sonar.genericcoverage.reportPaths: <empty>
+- sonar.testExecutionReportPaths: <empty>
+- sonar.genericcoverage.overallReportPaths: <empty>
+- sonar.externalIssuesReportPaths: <empty>
+23:25:47.880 DEBUG Sensors : IaC hadolint report Sensor -> Java Config Sensor -> IaC Docker Sensor -> IaC GitHub Actions Sensor -> IaC actionlint report Sensor -> IaC Shell Sensor -> EnterpriseTextAndSecretsSensor -> CFamily
+23:25:47.880 INFO  Sensor IaC hadolint report Sensor [iac]
+23:25:47.881 INFO  Sensor IaC hadolint report Sensor [iac] (done) | time=0ms
+23:25:47.881 INFO  Sensor Java Config Sensor [iac]
+23:25:47.883 INFO  There are no files to be analyzed for the Java language
+23:25:47.883 INFO  Sensor Java Config Sensor [iac] (done) | time=1ms
+23:25:47.883 INFO  Sensor IaC Docker Sensor [iac]
+23:25:47.883 DEBUG Sensor IaC Docker Sensor is allowed to analyze hidden files
+23:25:47.883 INFO  There are no files to be analyzed for the Docker language
+23:25:47.883 INFO  Sensor IaC Docker Sensor [iac] (done) | time=0ms
+23:25:47.883 INFO  Sensor IaC GitHub Actions Sensor [iac]
+23:25:47.883 DEBUG Sensor IaC GitHub Actions Sensor is allowed to analyze hidden files
+23:25:47.883 INFO  There are no files to be analyzed for the GitHub Actions language
+23:25:47.883 INFO  Sensor IaC GitHub Actions Sensor [iac] (done) | time=0ms
+23:25:47.884 INFO  Sensor IaC actionlint report Sensor [iac]
+23:25:47.884 DEBUG Sensor IaC actionlint report Sensor is allowed to analyze hidden files
+23:25:47.884 INFO  Sensor IaC actionlint report Sensor [iac] (done) | time=0ms
+23:25:47.884 INFO  Sensor IaC Shell Sensor [iac]
+23:25:47.884 DEBUG Sensor IaC Shell Sensor is allowed to analyze hidden files
+23:25:47.884 INFO  There are no files to be analyzed for the Shell language
+23:25:47.884 INFO  Sensor IaC Shell Sensor [iac] (done) | time=0ms
+23:25:47.884 INFO  Sensor EnterpriseTextAndSecretsSensor [textenterprise]
+23:25:47.884 DEBUG Sensor EnterpriseTextAndSecretsSensor is allowed to analyze hidden files
+23:25:47.893 INFO  Available processors: 8
+23:25:47.893 INFO  Using 8 threads for analysis.
+23:25:47.893 DEBUG Initializing SecretsStateContainer with specification loader.
+23:25:48.030 INFO  The property "sonar.tests" is not set. To improve the analysis accuracy, we categorize a file as a test file if any of the following is true:
+  * The filename starts with "test"
+  * The filename contains "test." or "tests."
+  * Any directory in the file path is named: "doc", "docs", "test", "tests", "mock" or "mocks"
+  * Any directory in the file path has a name ending in "test" or "tests"
+
+23:25:48.065 DEBUG Initializing ChecksContainer with checks and trie construction.
+23:25:48.070 DEBUG ChecksContainer initialized successfully with 17 checks without pre-filter and trie containing 462 patterns.
+23:25:48.071 INFO  Start fetching files for the text and secrets analysis
+23:25:48.076 DEBUG Read the "git --version" stdout in thread "pool-6-thread-1"
+23:25:48.087 DEBUG git --version returned: git version 2.50.1 (Apple Git-155)
+23:25:48.087 INFO  Using Git CLI to retrieve dirty files
+23:25:48.090 DEBUG Read the "git -C /Users/Anas/Desktop/Elmenus-System status --untracked-files=all --porcelain" stdout in thread "pool-6-thread-1"
+23:25:48.104 INFO  Retrieving language associated files and files included via "sonar.text.inclusions" that are tracked by git
+23:25:48.104 INFO  Starting the text and secrets analysis
+23:25:48.105 INFO  9 source files to be analyzed for the text and secrets analysis
+23:25:48.113 DEBUG 'main.cpp' generated metadata with charset 'UTF-8'
+23:25:48.114 DEBUG 'main_simple.cpp' generated metadata with charset 'UTF-8'
+23:25:48.115 DEBUG 'DeliveryDriver.cpp' generated metadata with charset 'UTF-8'
+23:25:48.116 DEBUG 'Customer.h' generated metadata with charset 'UTF-8'
+23:25:48.118 DEBUG 'Customer.cpp' generated metadata with charset 'UTF-8'
+23:25:48.119 DEBUG 'User.cpp' generated metadata with charset 'UTF-8'
+23:25:48.119 DEBUG 'User.h' generated metadata with charset 'UTF-8'
+23:25:48.120 DEBUG 'main_working.cpp' generated metadata with charset 'UTF-8'
+23:25:48.129 DEBUG 'DeliveryDriver.h' generated metadata with charset 'UTF-8'
+23:25:48.140 INFO  9/9 source files have been analyzed for the text and secrets analysis
+23:25:48.140 DEBUG Analyzed files for the text and secrets analysis: 9
+23:25:48.141 INFO  Start fetching files for the binary file analysis
+23:25:48.141 INFO  There are no files to be analyzed for the binary file analysis
+23:25:48.142 INFO  Sensor EnterpriseTextAndSecretsSensor [textenterprise] (done) | time=258ms
+23:25:48.142 INFO  Sensor CFamily [cpp]
+23:25:48.164 INFO  CFamily plugin version: 6.80.0.98490 (2ce4e6a53f541465806c1758f5778fba62c7c6a3)
+23:25:48.165 INFO  CFamily analysis configuration mode: Compile-Commands
+23:25:48.166 INFO  Incremental symbolic execution is enabled
+23:25:48.166 INFO  Use incremental symbolic execution's path length implementation
+23:25:48.167 INFO  Using compile commands: /Users/Anas/Desktop/Elmenus-System/compile_commands.json
+23:25:48.168 INFO  Available processors: 8
+23:25:48.169 INFO  Using 8 threads for analysis.
+23:25:48.169 DEBUG Unpacking analyzer to: /Users/Anas/Desktop/Elmenus-System/.scannerwork/.sonartmp/11254146359824304473
+23:25:49.712 INFO  Loading cache from: server
+23:25:49.715 DEBUG Fetching A3S collection configuration from API...
+23:25:49.715 DEBUG --> GET https://api.sonarcloud.io/a3s-frontend-context/collection-config?organizationKey=anas4208-workspace&projectKey=anas4208-workspace_anas4208-workspace
+23:25:50.118 DEBUG <-- 200 https://api.sonarcloud.io/a3s-frontend-context/collection-config?organizationKey=anas4208-workspace&projectKey=anas4208-workspace_anas4208-workspace (401ms, 17-byte body)
+23:25:50.120 DEBUG A3S collection configuration fetched from API and cached: false
+23:25:50.120 DEBUG A3S collection configuration retrieved from cache: false
+23:25:50.120 INFO  A3S context collection is disabled: neither the wrapper is enabled nor an export path is configured (Wrapper class: com.sonar.cpp.plugin.a3s.DefaultA3SContextCollectorWrapper, wrapper.isEnabled(): false, exportPath: null)
+23:25:50.127 DEBUG Total system memory: 16384MB
+23:25:50.127 DEBUG Initial Java memory used: 96
+23:25:50.128 DEBUG Java memory after analysis setup (used, peak): 86, 125
+23:25:50.180 DEBUG Java memory after lexical analysis (used, peak): 92, 92
+23:25:50.189 DEBUG Probing compiler: [/usr/bin/g++, -x, c++, --std, c++11, -v, -dM, -E, -]
+23:25:51.237 DEBUG stdout:
+#define TARGET_IPHONE_SIMULATOR 0
+#define TARGET_OS_ARROW 1
+#define TARGET_OS_BRIDGE 0
+#define TARGET_OS_DRIVERKIT 0
+#define TARGET_OS_EMBEDDED 0
+#define TARGET_OS_IOS 0
+#define TARGET_OS_IOSMAC 0
+#define TARGET_OS_IPHONE 0
+#define TARGET_OS_LINUX 0
+#define TARGET_OS_MAC 1
+#define TARGET_OS_MACCATALYST 0
+#define TARGET_OS_NANO 0
+#define TARGET_OS_OSX 1
+#define TARGET_OS_SIMULATOR 0
+#define TARGET_OS_TV 0
+#define TARGET_OS_UEFI 0
+#define TARGET_OS_UIKITFORMAC 0
+#define TARGET_OS_UNIX 0
+#define TARGET_OS_VISION 0
+#define TARGET_OS_WATCH 0
+#define TARGET_OS_WIN32 0
+#define TARGET_OS_WINDOWS 0
+#define TARGET_OS_XR 0
+#define _HAS_BUILTIN_AVAILABLE_FEATS 1
+#define _LP64 1
+#define __AARCH64EL__ 1
+#define __AARCH64_CMODEL_SMALL__ 1
+#define __AARCH64_SIMD__ 1
+#define __APPLE_CC__ 6000
+#define __APPLE__ 1
+#define __ARM64_ARCH_8__ 1
+#define __ARM_64BIT_STATE 1
+#define __ARM_ACLE 202420
+#define __ARM_ACLE_VERSION(year,quarter,patch) (100 * (year) + 10 * (quarter) + (patch))
+#define __ARM_ALIGN_MAX_STACK_PWR 4
+#define __ARM_ARCH 8
+#define __ARM_ARCH_8_2__ 1
+#define __ARM_ARCH_8_3__ 1
+#define __ARM_ARCH_8_4__ 1
+#define __ARM_ARCH_8_5__ 1
+#define __ARM_ARCH_ISA_A64 1
+#define __ARM_ARCH_PROFILE 'A'
+#define __ARM_FEATURE_AES 1
+#define __ARM_FEATURE_ATOMICS 1
+#define __ARM_FEATURE_BTI 1
+#define __ARM_FEATURE_CLZ 1
+#define __ARM_FEATURE_COMPLEX 1
+#define __ARM_FEATURE_CRC32 1
+#define __ARM_FEATURE_CRYPTO 1
+#define __ARM_FEATURE_DIRECTED_ROUNDING 1
+#define __ARM_FEATURE_DIV 1
+#define __ARM_FEATURE_DOTPROD 1
+#define __ARM_FEATURE_FMA 1
+#define __ARM_FEATURE_FP16_FML 1
+#define __ARM_FEATURE_FP16_SCALAR_ARITHMETIC 1
+#define __ARM_FEATURE_FP16_VECTOR_ARITHMETIC 1
+#define __ARM_FEATURE_FRINT 1
+#define __ARM_FEATURE_IDIV 1
+#define __ARM_FEATURE_JCVT 1
+#define __ARM_FEATURE_LDREX 0xF
+#define __ARM_FEATURE_NUMERIC_MAXMIN 1
+#define __ARM_FEATURE_PAUTH 1
+#define __ARM_FEATURE_QRDMX 1
+#define __ARM_FEATURE_RCPC 1
+#define __ARM_FEATURE_SHA2 1
+#define __ARM_FEATURE_SHA3 1
+#define __ARM_FEATURE_SHA512 1
+#define __ARM_FEATURE_UNALIGNED 1
+#define __ARM_FP 0xE
+#define __ARM_FP16_ARGS 1
+#define __ARM_FP16_FORMAT_IEEE 1
+#define __ARM_NEON 1
+#define __ARM_NEON_FP 0xE
+#define __ARM_NEON_SVE_BRIDGE 1
+#define __ARM_NEON__ 1
+#define __ARM_PCS_AAPCS64 1
+#define __ARM_SIZEOF_MINIMAL_ENUM 4
+#define __ARM_SIZEOF_WCHAR_T 4
+#define __ARM_STATE_ZA 1
+#define __ARM_STATE_ZT0 1
+#define __ATOMIC_ACQUIRE 2
+#define __ATOMIC_ACQ_REL 4
+#define __ATOMIC_CONSUME 1
+#define __ATOMIC_RELAXED 0
+#define __ATOMIC_RELEASE 3
+#define __ATOMIC_SEQ_CST 5
+#define __BIGGEST_ALIGNMENT__ 8
+#define __BITINT_MAXWIDTH__ 128
+#define __BLOCKS__ 1
+#define __BOOL_WIDTH__ 1
+#define __BYTE_ORDER__ __ORDER_LITTLE_ENDIAN__
+#define __CHAR16_TYPE__ unsigned short
+#define __CHAR32_TYPE__ unsigned int
+#define __CHAR_BIT__ 8
+#define __CLANG_ATOMIC_BOOL_LOCK_FREE 2
+#define __CLANG_ATOMIC_CHAR16_T_LOCK_FREE 2
+#define __CLANG_ATOMIC_CHAR32_T_LOCK_FREE 2
+#define __CLANG_ATOMIC_CHAR_LOCK_FREE 2
+#define __CLANG_ATOMIC_INT_LOCK_FREE 2
+#define __CLANG_ATOMIC_LLONG_LOCK_FREE 2
+#define __CLANG_ATOMIC_LONG_LOCK_FREE 2
+#define __CLANG_ATOMIC_POINTER_LOCK_FREE 2
+#define __CLANG_ATOMIC_SHORT_LOCK_FREE 2
+#define __CLANG_ATOMIC_WCHAR_T_LOCK_FREE 2
+#define __CONSTANT_CFSTRINGS__ 1
+#define __DBL_DECIMAL_DIG__ 17
+#define __DBL_DENORM_MIN__ 4.9406564584124654e-324
+#define __DBL_DIG__ 15
+#define __DBL_EPSILON__ 2.2204460492503131e-16
+#define __DBL_HAS_DENORM__ 1
+#define __DBL_HAS_INFINITY__ 1
+#define __DBL_HAS_QUIET_NAN__ 1
+#define __DBL_MANT_DIG__ 53
+#define __DBL_MAX_10_EXP__ 308
+#define __DBL_MAX_EXP__ 1024
+#define __DBL_MAX__ 1.7976931348623157e+308
+#define __DBL_MIN_10_EXP__ (-307)
+#define __DBL_MIN_EXP__ (-1021)
+#define __DBL_MIN__ 2.2250738585072014e-308
+#define __DBL_NORM_MAX__ 1.7976931348623157e+308
+#define __DECIMAL_DIG__ __LDBL_DECIMAL_DIG__
+#define __DEPRECATED 1
+#define __DYNAMIC__ 1
+#define __ENVIRONMENT_MAC_OS_X_VERSION_MIN_REQUIRED__ 260000
+#define __ENVIRONMENT_OS_VERSION_MIN_REQUIRED__ 260000
+#define __EXCEPTIONS 1
+#define __FINITE_MATH_ONLY__ 0
+#define __FLT16_DECIMAL_DIG__ 5
+#define __FLT16_DENORM_MIN__ 5.9604644775390625e-8F16
+#define __FLT16_DIG__ 3
+#define __FLT16_EPSILON__ 9.765625e-4F16
+#define __FLT16_HAS_DENORM__ 1
+#define __FLT16_HAS_INFINITY__ 1
+#define __FLT16_HAS_QUIET_NAN__ 1
+#define __FLT16_MANT_DIG__ 11
+#define __FLT16_MAX_10_EXP__ 4
+#define __FLT16_MAX_EXP__ 16
+#define __FLT16_MAX__ 6.5504e+4F16
+#define __FLT16_MIN_10_EXP__ (-4)
+#define __FLT16_MIN_EXP__ (-13)
+#define __FLT16_MIN__ 6.103515625e-5F16
+#define __FLT16_NORM_MAX__ 6.5504e+4F16
+#define __FLT_DECIMAL_DIG__ 9
+#define __FLT_DENORM_MIN__ 1.40129846e-45F
+#define __FLT_DIG__ 6
+#define __FLT_EPSILON__ 1.19209290e-7F
+#define __FLT_HAS_DENORM__ 1
+#define __FLT_HAS_INFINITY__ 1
+#define __FLT_HAS_QUIET_NAN__ 1
+#define __FLT_MANT_DIG__ 24
+#define __FLT_MAX_10_EXP__ 38
+#define __FLT_MAX_EXP__ 128
+#define __FLT_MAX__ 3.40282347e+38F
+#define __FLT_MIN_10_EXP__ (-37)
+#define __FLT_MIN_EXP__ (-125)
+#define __FLT_MIN__ 1.17549435e-38F
+#define __FLT_NORM_MAX__ 3.40282347e+38F
+#define __FLT_RADIX__ 2
+#define __FPCLASS_NEGINF 0x0004
+#define __FPCLASS_NEGNORMAL 0x0008
+#define __FPCLASS_NEGSUBNORMAL 0x0010
+#define __FPCLASS_NEGZERO 0x0020
+#define __FPCLASS_POSINF 0x0200
+#define __FPCLASS_POSNORMAL 0x0100
+#define __FPCLASS_POSSUBNORMAL 0x0080
+#define __FPCLASS_POSZERO 0x0040
+#define __FPCLASS_QNAN 0x0002
+#define __FPCLASS_SNAN 0x0001
+#define __FP_FAST_FMA 1
+#define __FP_FAST_FMAF 1
+#define __FUNCTION_MULTI_VERSIONING_SUPPORT_LEVEL 202430
+#define __GCC_ASM_FLAG_OUTPUTS__ 1
+#define __GCC_ATOMIC_BOOL_LOCK_FREE 2
+#define __GCC_ATOMIC_CHAR16_T_LOCK_FREE 2
+#define __GCC_ATOMIC_CHAR32_T_LOCK_FREE 2
+#define __GCC_ATOMIC_CHAR_LOCK_FREE 2
+#define __GCC_ATOMIC_INT_LOCK_FREE 2
+#define __GCC_ATOMIC_LLONG_LOCK_FREE 2
+#define __GCC_ATOMIC_LONG_LOCK_FREE 2
+#define __GCC_ATOMIC_POINTER_LOCK_FREE 2
+#define __GCC_ATOMIC_SHORT_LOCK_FREE 2
+#define __GCC_ATOMIC_TEST_AND_SET_TRUEVAL 1
+#define __GCC_ATOMIC_WCHAR_T_LOCK_FREE 2
+#define __GCC_CONSTRUCTIVE_SIZE 64
+#define __GCC_DESTRUCTIVE_SIZE 256
+#define __GCC_HAVE_DWARF2_CFI_ASM 1
+#define __GCC_HAVE_SYNC_COMPARE_AND_SWAP_1 1
+#define __GCC_HAVE_SYNC_COMPARE_AND_SWAP_16 1
+#define __GCC_HAVE_SYNC_COMPARE_AND_SWAP_2 1
+#define __GCC_HAVE_SYNC_COMPARE_AND_SWAP_4 1
+#define __GCC_HAVE_SYNC_COMPARE_AND_SWAP_8 1
+#define __GNUC_GNU_INLINE__ 1
+#define __GNUC_MINOR__ 2
+#define __GNUC_PATCHLEVEL__ 1
+#define __GNUC__ 4
+#define __GNUG__ 4
+#define __GXX_ABI_VERSION 1002
+#define __GXX_EXPERIMENTAL_CXX0X__ 1
+#define __GXX_RTTI 1
+#define __GXX_WEAK__ 1
+#define __HAVE_FUNCTION_MULTI_VERSIONING 1
+#define __INT16_C(c) c
+#define __INT16_C_SUFFIX__ 
+#define __INT16_FMTd__ "hd"
+#define __INT16_FMTi__ "hi"
+#define __INT16_MAX__ 32767
+#define __INT16_TYPE__ short
+#define __INT32_C(c) c
+#define __INT32_C_SUFFIX__ 
+#define __INT32_FMTd__ "d"
+#define __INT32_FMTi__ "i"
+#define __INT32_MAX__ 2147483647
+#define __INT32_TYPE__ int
+#define __INT64_C(c) c##LL
+#define __INT64_C_SUFFIX__ LL
+#define __INT64_FMTd__ "lld"
+#define __INT64_FMTi__ "lli"
+#define __INT64_MAX__ 9223372036854775807LL
+#define __INT64_TYPE__ long long int
+#define __INT8_C(c) c
+#define __INT8_C_SUFFIX__ 
+#define __INT8_FMTd__ "hhd"
+#define __INT8_FMTi__ "hhi"
+#define __INT8_MAX__ 127
+#define __INT8_TYPE__ signed char
+#define __INTMAX_C(c) c##L
+#define __INTMAX_C_SUFFIX__ L
+#define __INTMAX_FMTd__ "ld"
+#define __INTMAX_FMTi__ "li"
+#define __INTMAX_MAX__ 9223372036854775807L
+#define __INTMAX_TYPE__ long int
+#define __INTMAX_WIDTH__ 64
+#define __INTPTR_FMTd__ "ld"
+#define __INTPTR_FMTi__ "li"
+#define __INTPTR_MAX__ 9223372036854775807L
+#define __INTPTR_TYPE__ long int
+#define __INTPTR_WIDTH__ 64
+#define __INT_FAST16_FMTd__ "hd"
+#define __INT_FAST16_FMTi__ "hi"
+#define __INT_FAST16_MAX__ 32767
+#define __INT_FAST16_TYPE__ short
+#define __INT_FAST16_WIDTH__ 16
+#define __INT_FAST32_FMTd__ "d"
+#define __INT_FAST32_FMTi__ "i"
+#define __INT_FAST32_MAX__ 2147483647
+#define __INT_FAST32_TYPE__ int
+#define __INT_FAST32_WIDTH__ 32
+#define __INT_FAST64_FMTd__ "lld"
+#define __INT_FAST64_FMTi__ "lli"
+#define __INT_FAST64_MAX__ 9223372036854775807LL
+#define __INT_FAST64_TYPE__ long long int
+#define __INT_FAST64_WIDTH__ 64
+#define __INT_FAST8_FMTd__ "hhd"
+#define __INT_FAST8_FMTi__ "hhi"
+#define __INT_FAST8_MAX__ 127
+#define __INT_FAST8_TYPE__ signed char
+#define __INT_FAST8_WIDTH__ 8
+#define __INT_LEAST16_FMTd__ "hd"
+#define __INT_LEAST16_FMTi__ "hi"
+#define __INT_LEAST16_MAX__ 32767
+#define __INT_LEAST16_TYPE__ short
+#define __INT_LEAST16_WIDTH__ 16
+#define __INT_LEAST32_FMTd__ "d"
+#define __INT_LEAST32_FMTi__ "i"
+#define __INT_LEAST32_MAX__ 2147483647
+#define __INT_LEAST32_TYPE__ int
+#define __INT_LEAST32_WIDTH__ 32
+#define __INT_LEAST64_FMTd__ "lld"
+#define __INT_LEAST64_FMTi__ "lli"
+#define __INT_LEAST64_MAX__ 9223372036854775807LL
+#define __INT_LEAST64_TYPE__ long long int
+#define __INT_LEAST64_WIDTH__ 64
+#define __INT_LEAST8_FMTd__ "hhd"
+#define __INT_LEAST8_FMTi__ "hhi"
+#define __INT_LEAST8_MAX__ 127
+#define __INT_LEAST8_TYPE__ signed char
+#define __INT_LEAST8_WIDTH__ 8
+#define __INT_MAX__ 2147483647
+#define __INT_WIDTH__ 32
+#define __LDBL_DECIMAL_DIG__ 17
+#define __LDBL_DENORM_MIN__ 4.9406564584124654e-324L
+#define __LDBL_DIG__ 15
+#define __LDBL_EPSILON__ 2.2204460492503131e-16L
+#define __LDBL_HAS_DENORM__ 1
+#define __LDBL_HAS_INFINITY__ 1
+#define __LDBL_HAS_QUIET_NAN__ 1
+#define __LDBL_MANT_DIG__ 53
+#define __LDBL_MAX_10_EXP__ 308
+#define __LDBL_MAX_EXP__ 1024
+#define __LDBL_MAX__ 1.7976931348623157e+308L
+#define __LDBL_MIN_10_EXP__ (-307)
+#define __LDBL_MIN_EXP__ (-1021)
+#define __LDBL_MIN__ 2.2250738585072014e-308L
+#define __LDBL_NORM_MAX__ 1.7976931348623157e+308L
+#define __LITTLE_ENDIAN__ 1
+#define __LLONG_WIDTH__ 64
+#define __LONG_LONG_MAX__ 9223372036854775807LL
+#define __LONG_MAX__ 9223372036854775807L
+#define __LONG_WIDTH__ 64
+#define __LP64__ 1
+#define __MACH__ 1
+#define __MEMORY_SCOPE_DEVICE 1
+#define __MEMORY_SCOPE_SINGLE 4
+#define __MEMORY_SCOPE_SYSTEM 0
+#define __MEMORY_SCOPE_WRKGRP 2
+#define __MEMORY_SCOPE_WVFRNT 3
+#define __NO_INLINE__ 1
+#define __NO_MATH_ERRNO__ 1
+#define __OBJC_BOOL_IS_BOOL 1
+#define __OPENCL_MEMORY_SCOPE_ALL_SVM_DEVICES 3
+#define __OPENCL_MEMORY_SCOPE_DEVICE 2
+#define __OPENCL_MEMORY_SCOPE_SUB_GROUP 4
+#define __OPENCL_MEMORY_SCOPE_WORK_GROUP 1
+#define __OPENCL_MEMORY_SCOPE_WORK_ITEM 0
+#define __ORDER_BIG_ENDIAN__ 4321
+#define __ORDER_LITTLE_ENDIAN__ 1234
+#define __ORDER_PDP_ENDIAN__ 3412
+#define __PIC__ 2
+#define __POINTER_WIDTH__ 64
+#define __PRAGMA_REDEFINE_EXTNAME 1
+#define __PTRDIFF_FMTd__ "ld"
+#define __PTRDIFF_FMTi__ "li"
+#define __PTRDIFF_MAX__ 9223372036854775807L
+#define __PTRDIFF_TYPE__ long int
+#define __PTRDIFF_WIDTH__ 64
+#define __REGISTER_PREFIX__ 
+#define __SCHAR_MAX__ 127
+#define __SHRT_MAX__ 32767
+#define __SHRT_WIDTH__ 16
+#define __SIG_ATOMIC_MAX__ 2147483647
+#define __SIG_ATOMIC_WIDTH__ 32
+#define __SIZEOF_DOUBLE__ 8
+#define __SIZEOF_FLOAT__ 4
+#define __SIZEOF_INT128__ 16
+#define __SIZEOF_INT__ 4
+#define __SIZEOF_LONG_DOUBLE__ 8
+#define __SIZEOF_LONG_LONG__ 8
+#define __SIZEOF_LONG__ 8
+#define __SIZEOF_POINTER__ 8
+#define __SIZEOF_PTRDIFF_T__ 8
+#define __SIZEOF_SHORT__ 2
+#define __SIZEOF_SIZE_T__ 8
+#define __SIZEOF_WCHAR_T__ 4
+#define __SIZEOF_WINT_T__ 4
+#define __SIZE_FMTX__ "lX"
+#define __SIZE_FMTo__ "lo"
+#define __SIZE_FMTu__ "lu"
+#define __SIZE_FMTx__ "lx"
+#define __SIZE_MAX__ 18446744073709551615UL
+#define __SIZE_TYPE__ long unsigned int
+#define __SIZE_WIDTH__ 64
+#define __SSP__ 1
+#define __STDCPP_DEFAULT_NEW_ALIGNMENT__ 16UL
+#define __STDCPP_THREADS__ 1
+#define __STDC_EMBED_EMPTY__ 2
+#define __STDC_EMBED_FOUND__ 1
+#define __STDC_EMBED_NOT_FOUND__ 0
+#define __STDC_HOSTED__ 1
+#define __STDC_NO_THREADS__ 1
+#define __STDC_UTF_16__ 1
+#define __STDC_UTF_32__ 1
+#define __STDC__ 1
+#define __STRICT_ANSI__ 1
+#define __UINT16_C(c) c
+#define __UINT16_C_SUFFIX__ 
+#define __UINT16_FMTX__ "hX"
+#define __UINT16_FMTo__ "ho"
+#define __UINT16_FMTu__ "hu"
+#define __UINT16_FMTx__ "hx"
+#define __UINT16_MAX__ 65535
+#define __UINT16_TYPE__ unsigned short
+#define __UINT32_C(c) c##U
+#define __UINT32_C_SUFFIX__ U
+#define __UINT32_FMTX__ "X"
+#define __UINT32_FMTo__ "o"
+#define __UINT32_FMTu__ "u"
+#define __UINT32_FMTx__ "x"
+#define __UINT32_MAX__ 4294967295U
+#define __UINT32_TYPE__ unsigned int
+#define __UINT64_C(c) c##ULL
+#define __UINT64_C_SUFFIX__ ULL
+#define __UINT64_FMTX__ "llX"
+#define __UINT64_FMTo__ "llo"
+#define __UINT64_FMTu__ "llu"
+#define __UINT64_FMTx__ "llx"
+#define __UINT64_MAX__ 18446744073709551615ULL
+#define __UINT64_TYPE__ long long unsigned int
+#define __UINT8_C(c) c
+#define __UINT8_C_SUFFIX__ 
+#define __UINT8_FMTX__ "hhX"
+#define __UINT8_FMTo__ "hho"
+#define __UINT8_FMTu__ "hhu"
+#define __UINT8_FMTx__ "hhx"
+#define __UINT8_MAX__ 255
+#define __UINT8_TYPE__ unsigned char
+#define __UINTMAX_C(c) c##UL
+#define __UINTMAX_C_SUFFIX__ UL
+#define __UINTMAX_FMTX__ "lX"
+#define __UINTMAX_FMTo__ "lo"
+#define __UINTMAX_FMTu__ "lu"
+#define __UINTMAX_FMTx__ "lx"
+#define __UINTMAX_MAX__ 18446744073709551615UL
+#define __UINTMAX_TYPE__ long unsigned int
+#define __UINTMAX_WIDTH__ 64
+#define __UINTPTR_FMTX__ "lX"
+#define __UINTPTR_FMTo__ "lo"
+#define __UINTPTR_FMTu__ "lu"
+#define __UINTPTR_FMTx__ "lx"
+#define __UINTPTR_MAX__ 18446744073709551615UL
+#define __UINTPTR_TYPE__ long unsigned int
+#define __UINTPTR_WIDTH__ 64
+#define __UINT_FAST16_FMTX__ "hX"
+#define __UINT_FAST16_FMTo__ "ho"
+#define __UINT_FAST16_FMTu__ "hu"
+#define __UINT_FAST16_FMTx__ "hx"
+#define __UINT_FAST16_MAX__ 65535
+#define __UINT_FAST16_TYPE__ unsigned short
+#define __UINT_FAST32_FMTX__ "X"
+#define __UINT_FAST32_FMTo__ "o"
+#define __UINT_FAST32_FMTu__ "u"
+#define __UINT_FAST32_FMTx__ "x"
+#define __UINT_FAST32_MAX__ 4294967295U
+#define __UINT_FAST32_TYPE__ unsigned int
+#define __UINT_FAST64_FMTX__ "llX"
+#define __UINT_FAST64_FMTo__ "llo"
+#define __UINT_FAST64_FMTu__ "llu"
+#define __UINT_FAST64_FMTx__ "llx"
+#define __UINT_FAST64_MAX__ 18446744073709551615ULL
+#define __UINT_FAST64_TYPE__ long long unsigned int
+#define __UINT_FAST8_FMTX__ "hhX"
+#define __UINT_FAST8_FMTo__ "hho"
+#define __UINT_FAST8_FMTu__ "hhu"
+#define __UINT_FAST8_FMTx__ "hhx"
+#define __UINT_FAST8_MAX__ 255
+#define __UINT_FAST8_TYPE__ unsigned char
+#define __UINT_LEAST16_FMTX__ "hX"
+#define __UINT_LEAST16_FMTo__ "ho"
+#define __UINT_LEAST16_FMTu__ "hu"
+#define __UINT_LEAST16_FMTx__ "hx"
+#define __UINT_LEAST16_MAX__ 65535
+#define __UINT_LEAST16_TYPE__ unsigned short
+#define __UINT_LEAST32_FMTX__ "X"
+#define __UINT_LEAST32_FMTo__ "o"
+#define __UINT_LEAST32_FMTu__ "u"
+#define __UINT_LEAST32_FMTx__ "x"
+#define __UINT_LEAST32_MAX__ 4294967295U
+#define __UINT_LEAST32_TYPE__ unsigned int
+#define __UINT_LEAST64_FMTX__ "llX"
+#define __UINT_LEAST64_FMTo__ "llo"
+#define __UINT_LEAST64_FMTu__ "llu"
+#define __UINT_LEAST64_FMTx__ "llx"
+#define __UINT_LEAST64_MAX__ 18446744073709551615ULL
+#define __UINT_LEAST64_TYPE__ long long unsigned int
+#define __UINT_LEAST8_FMTX__ "hhX"
+#define __UINT_LEAST8_FMTo__ "hho"
+#define __UINT_LEAST8_FMTu__ "hhu"
+#define __UINT_LEAST8_FMTx__ "hhx"
+#define __UINT_LEAST8_MAX__ 255
+#define __UINT_LEAST8_TYPE__ unsigned char
+#define __USER_LABEL_PREFIX__ _
+#define __VERSION__ "Apple LLVM 21.0.0 (clang-2100.0.123.102)"
+#define __WCHAR_MAX__ 2147483647
+#define __WCHAR_TYPE__ int
+#define __WCHAR_WIDTH__ 32
+#define __WINT_MAX__ 2147483647
+#define __WINT_TYPE__ int
+#define __WINT_WIDTH__ 32
+#define __aarch64__ 1
+#define __apple_build_version__ 21000099
+#define __arm64 1
+#define __arm64__ 1
+#define __block __attribute__((__blocks__(byref)))
+#define __clang__ 1
+#define __clang_literal_encoding__ "UTF-8"
+#define __clang_major__ 21
+#define __clang_minor__ 0
+#define __clang_patchlevel__ 0
+#define __clang_version__ "21.0.0 (clang-2100.0.123.102)"
+#define __clang_wide_literal_encoding__ "UTF-32"
+#define __cplusplus 201103L
+#define __cpp_alias_templates 200704L
+#define __cpp_attributes 200809L
+#define __cpp_constexpr 200704
+#define __cpp_constexpr_in_decltype 201711L
+#define __cpp_decltype 200707L
+#define __cpp_delegating_constructors 200604L
+#define __cpp_deleted_function 202403L
+#define __cpp_exceptions 199711L
+#define __cpp_impl_destroying_delete 201806L
+#define __cpp_inheriting_constructors 201511L
+#define __cpp_initializer_lists 200806L
+#define __cpp_lambdas 200907L
+#define __cpp_named_character_escapes 202207L
+#define __cpp_nsdmi 200809L
+#define __cpp_pack_indexing 202311L
+#define __cpp_placeholder_variables 202306L
+#define __cpp_range_based_for 200907
+#define __cpp_raw_strings 200710L
+#define __cpp_ref_qualifiers 200710L
+#define __cpp_rtti 199711L
+#define __cpp_rvalue_references 200610L
+#define __cpp_static_assert 202306L
+#define __cpp_static_call_operator 202207L
+#define __cpp_template_template_args 201611L
+#define __cpp_threadsafe_static_init 200806L
+#define __cpp_unicode_characters 200704L
+#define __cpp_unicode_literals 200710L
+#define __cpp_user_defined_literals 200809L
+#define __cpp_variadic_friend 202403L
+#define __cpp_variadic_templates 200704L
+#define __llvm__ 1
+#define __nonnull _Nonnull
+#define __null_unspecified _Null_unspecified
+#define __nullable _Nullable
+#define __pic__ 2
+#define __private_extern__ extern
+#define __strong 
+#define __unsafe_unretained 
+#define __weak __attribute__((objc_gc(weak)))
+
+23:25:51.237 DEBUG stderr:
+Apple clang version 21.0.0 (clang-2100.0.123.102)
+Target: arm64-apple-darwin25.4.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+ignoring nonexistent directory "/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"
+ "/Library/Developer/CommandLineTools/usr/bin/clang" -cc1 -triple arm64-apple-macosx26.0.0 -Wundef-prefix=TARGET_OS_ -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -Werror=implicit-function-declaration -E -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name - -mrelocation-model pic -pic-level 2 -mframe-pointer=non-leaf -fno-strict-return -ffp-contract=on -fno-rounding-math -funwind-tables=1 -fobjc-msgsend-selector-stubs -fno-sized-deallocation -target-sdk-version=26.4 -fvisibility-inlines-hidden-static-local-var -fno-modulemap-allow-subdirectory-search -fdefine-target-os-macros -fno-assume-unique-vtables -fno-modulemap-allow-subdirectory-search -enable-tlsdesc -target-cpu apple-m1 -target-feature +v8.5a -target-feature +aes -target-feature +altnzcv -target-feature +ccdp -target-feature +ccpp -target-feature +complxnum -target-feature +crc -target-feature +dotprod -target-feature +flagm -target-feature +fp-armv8 -target-feature +fp16fml -target-feature +fptoint -target-feature +fullfp16 -target-feature +jsconv -target-feature +lse -target-feature +neon -target-feature +pauth -target-feature +perfmon -target-feature +predres -target-feature +ras -target-feature +rcpc -target-feature +rdm -target-feature +sb -target-feature +sha2 -target-feature +sha3 -target-feature +specrestrict -target-feature +ssbs -target-abi darwinpcs -debugger-tuning=lldb -fdebug-compilation-dir=/Users/Anas/Desktop/Elmenus-System -target-linker-version 1266.8 -v -fcoverage-compilation-dir=/Users/Anas/Desktop/Elmenus-System -resource-dir /Library/Developer/CommandLineTools/usr/lib/clang/21 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -I/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1 -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/usr/lib/clang/21/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -internal-externc-isystem /Library/Developer/CommandLineTools/usr/include -internal-iframework /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks -internal-iframework /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/SubFrameworks -internal-iframework /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/Library/Frameworks -Wno-elaborated-enum-base -std=c++11 -fdeprecated-macro -ferror-limit 19 -stack-protector 1 -fstack-check -mdarwin-stkchk-strong-link -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fcxx-exceptions -fexceptions -fmax-type-align=16 -fcommon -dM -clang-vendor-feature=+disableNonDependentMemberExprInCurrentInstantiation -fno-odr-hash-protocols -clang-vendor-feature=+enableAggressiveVLAFolding -clang-vendor-feature=+revert09abecef7bbf -clang-vendor-feature=+thisNoAlignAttr -clang-vendor-feature=+thisNoNullAttr -clang-vendor-feature=+disableAtImportPrivateFrameworkInImplementationError -Wno-error=allocator-wrappers -fdwarf2-cfi-asm -o - -x c++ -
+clang -cc1 version 21.0.0 (clang-2100.0.123.102) default target arm64-apple-darwin25.4.0
+ignoring nonexistent directory "/usr/local/include"
+ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/local/include"
+ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/Library/Frameworks"
+#include "..." search starts here:
+#include <...> search starts here:
+ /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1
+ /Library/Developer/CommandLineTools/usr/lib/clang/21/include
+ /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include
+ /Library/Developer/CommandLineTools/usr/include
+ /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks (framework directory)
+ /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/SubFrameworks (framework directory)
+End of search list.
+
+23:25:51.239 INFO  Detected compilers: g++=4
+23:25:51.239 INFO  Number of compilation units in the provided Compilation Database: 4
+23:25:51.240 INFO  Number of skipped unsupported compilation units: 0
+23:25:51.240 INFO  Number of skipped non-indexed compilation units: 0
+23:25:51.240 INFO  Number of skipped duplicate compilation units: 0
+23:25:51.240 INFO  Number of remaining compilation units to be analyzed: 4
+23:25:51.240 DEBUG Java memory after requests computation (used, peak): 94, 94
+23:25:51.240 INFO  Detected standards: c++11=4
+23:25:51.240 INFO  Starting the analysis of 4 CFamily compilation units
+23:25:51.355 INFO  [1/4] Cache hit for: /Users/Anas/Desktop/Elmenus-System/Customer.cpp
+23:25:51.367 DEBUG /Users/Anas/Desktop/Elmenus-System/Customer.cpp - expected cc1 command-line hash '5616206507788517644', but found '1689539250367867537', CC1 command line: '-std=c++11 -fcxx-exceptions -fmath-errno -fpch-instantiate-templates -fmodules-search-all -fretain-subst-template-type-parm-type-ast-nodes -fno-spell-checking -disable-objc-default-synthesize-properties -fconst-strings -fno-signed-wchar -fexperimental-max-bitint-width=128 -fblocks -fconvergent-functions -ffp-contract=off -fno-experimental-relative-c++-abi-vtables -fno-file-reproducible'
+23:25:51.367 DEBUG /Users/Anas/Desktop/Elmenus-System/Customer.cpp - requires re-analysis query for Customer::operator+=(int) : yes (no cache or unknown hash)
+23:25:51.367 DEBUG /Users/Anas/Desktop/Elmenus-System/Customer.cpp - requires re-analysis query for Customer::getLoyaltyPoints() : yes (no cache or unknown hash)
+23:25:51.367 DEBUG /Users/Anas/Desktop/Elmenus-System/Customer.cpp - requires re-analysis query for Customer::setLoyaltyPoints(int) : yes (no cache or unknown hash)
+23:25:51.367 DEBUG /Users/Anas/Desktop/Elmenus-System/Customer.cpp - requires re-analysis query for Customer::calculateEarnings() : yes (no cache or unknown hash)
+23:25:51.368 DEBUG /Users/Anas/Desktop/Elmenus-System/Customer.cpp - requires re-analysis query for Customer::displayInfo() : yes (no cache or unknown hash)
+23:25:51.368 DEBUG /Users/Anas/Desktop/Elmenus-System/Customer.cpp - requires re-analysis query for Customer::Customer(const std::string &, const std::string &, const std::string &, const std::string &) : yes (no cache or unknown hash)
+23:25:51.368 DEBUG /Users/Anas/Desktop/Elmenus-System/Customer.cpp - requires re-analysis query for Customer::Customer() : yes (no cache or unknown hash)
+23:25:51.368 DEBUG /Users/Anas/Desktop/Elmenus-System/Customer.cpp - successfully written cache to '/Users/Anas/Desktop/Elmenus-System/.scannerwork/cfamily/csa-incse-cache/5F032FD65332D78FA031A966637E69DC.out'
+23:25:51.373 INFO  [2/4] Cache hit for: /Users/Anas/Desktop/Elmenus-System/DeliveryDriver.cpp
+23:25:51.374 DEBUG /Users/Anas/Desktop/Elmenus-System/DeliveryDriver.cpp - expected cc1 command-line hash '5616206507788517644', but found '1689539250367867537', CC1 command line: '-std=c++11 -fcxx-exceptions -fmath-errno -fpch-instantiate-templates -fmodules-search-all -fretain-subst-template-type-parm-type-ast-nodes -fno-spell-checking -disable-objc-default-synthesize-properties -fconst-strings -fno-signed-wchar -fexperimental-max-bitint-width=128 -fblocks -fconvergent-functions -ffp-contract=off -fno-experimental-relative-c++-abi-vtables -fno-file-reproducible'
+23:25:51.374 DEBUG /Users/Anas/Desktop/Elmenus-System/DeliveryDriver.cpp - requires re-analysis query for DeliveryDriver::getTotalEarnings() : yes (no cache or unknown hash)
+23:25:51.374 DEBUG /Users/Anas/Desktop/Elmenus-System/DeliveryDriver.cpp - requires re-analysis query for DeliveryDriver::getCompletedDeliveries() : yes (no cache or unknown hash)
+23:25:51.374 DEBUG /Users/Anas/Desktop/Elmenus-System/DeliveryDriver.cpp - requires re-analysis query for DeliveryDriver::operator++(int) : yes (no cache or unknown hash)
+23:25:51.374 DEBUG /Users/Anas/Desktop/Elmenus-System/DeliveryDriver.cpp - requires re-analysis query for DeliveryDriver::operator++() : yes (no cache or unknown hash)
+23:25:51.374 DEBUG /Users/Anas/Desktop/Elmenus-System/DeliveryDriver.cpp - requires re-analysis query for DeliveryDriver::completeDelivery(double) : yes (no cache or unknown hash)
+23:25:51.374 DEBUG /Users/Anas/Desktop/Elmenus-System/DeliveryDriver.cpp - requires re-analysis query for DeliveryDriver::calculateEarnings() : yes (no cache or unknown hash)
+23:25:51.374 DEBUG /Users/Anas/Desktop/Elmenus-System/DeliveryDriver.cpp - requires re-analysis query for DeliveryDriver::displayInfo() : yes (no cache or unknown hash)
+23:25:51.374 DEBUG /Users/Anas/Desktop/Elmenus-System/DeliveryDriver.cpp - requires re-analysis query for DeliveryDriver::DeliveryDriver(const std::string &, const std::string &, const std::string &, const std::string &, int, double) : yes (no cache or unknown hash)
+23:25:51.375 DEBUG /Users/Anas/Desktop/Elmenus-System/DeliveryDriver.cpp - requires re-analysis query for DeliveryDriver::DeliveryDriver() : yes (no cache or unknown hash)
+23:25:51.375 DEBUG /Users/Anas/Desktop/Elmenus-System/DeliveryDriver.cpp - successfully written cache to '/Users/Anas/Desktop/Elmenus-System/.scannerwork/cfamily/csa-incse-cache/1B7E3D78D498EC535F4F93DF68DD57E6.out'
+23:25:51.380 INFO  [3/4] Cache hit for: /Users/Anas/Desktop/Elmenus-System/User.cpp
+23:25:51.381 DEBUG /Users/Anas/Desktop/Elmenus-System/User.cpp - expected cc1 command-line hash '5616206507788517644', but found '1689539250367867537', CC1 command line: '-std=c++11 -fcxx-exceptions -fmath-errno -fpch-instantiate-templates -fmodules-search-all -fretain-subst-template-type-parm-type-ast-nodes -fno-spell-checking -disable-objc-default-synthesize-properties -fconst-strings -fno-signed-wchar -fexperimental-max-bitint-width=128 -fblocks -fconvergent-functions -ffp-contract=off -fno-experimental-relative-c++-abi-vtables -fno-file-reproducible'
+23:25:51.381 DEBUG /Users/Anas/Desktop/Elmenus-System/User.cpp - requires re-analysis query for User::getPhoneNumber() : yes (no cache or unknown hash)
+23:25:51.381 DEBUG /Users/Anas/Desktop/Elmenus-System/User.cpp - requires re-analysis query for User::getName() : yes (no cache or unknown hash)
+23:25:51.381 DEBUG /Users/Anas/Desktop/Elmenus-System/User.cpp - requires re-analysis query for User::getUserId() : yes (no cache or unknown hash)
+23:25:51.381 DEBUG /Users/Anas/Desktop/Elmenus-System/User.cpp - requires re-analysis query for User::getTotalUsers() : yes (no cache or unknown hash)
+23:25:51.381 DEBUG /Users/Anas/Desktop/Elmenus-System/User.cpp - requires re-analysis query for User::~User() : yes (no cache or unknown hash)
+23:25:51.381 DEBUG /Users/Anas/Desktop/Elmenus-System/User.cpp - requires re-analysis query for User::User(const std::string &, const std::string &, const std::string &) : yes (no cache or unknown hash)
+23:25:51.381 DEBUG /Users/Anas/Desktop/Elmenus-System/User.cpp - requires re-analysis query for User::User() : yes (no cache or unknown hash)
+23:25:51.381 DEBUG /Users/Anas/Desktop/Elmenus-System/User.cpp - successfully written cache to '/Users/Anas/Desktop/Elmenus-System/.scannerwork/cfamily/csa-incse-cache/86EB7672E5E1646F663860C4F96889D1.out'
+23:25:51.384 INFO  [4/4] Cache hit for: /Users/Anas/Desktop/Elmenus-System/main_working.cpp
+23:25:51.385 DEBUG /Users/Anas/Desktop/Elmenus-System/main_working.cpp - empty cache file '/Users/Anas/Desktop/Elmenus-System/.scannerwork/cfamily/csa-incse-cache/9EEE31E3A6B4BAA8ABD3CB4741C4AB6E'
+23:25:51.385 DEBUG /Users/Anas/Desktop/Elmenus-System/main_working.cpp - requires re-analysis query for main() : yes (no cache or unknown hash)
+23:25:51.385 DEBUG /Users/Anas/Desktop/Elmenus-System/main_working.cpp - successfully written cache to '/Users/Anas/Desktop/Elmenus-System/.scannerwork/cfamily/csa-incse-cache/9EEE31E3A6B4BAA8ABD3CB4741C4AB6E.out'
+23:25:51.386 DEBUG A3S collection configuration retrieved from cache: false
+23:25:51.386 DEBUG Java memory after analysis is done (used, peak): 61, 113
+23:25:51.402 INFO  9/9 files marked as unchanged
+23:25:51.402 INFO  Analysis cache: 4/4 hits, 176023 bytes
+23:25:51.402 INFO  Incremental symbolic execution cache: 0 hits out of 0 total analyzed targets (hit rate 0%)
+23:25:51.402 INFO  CFamily analysis done in: 3239ms
+23:25:51.402 INFO  4 compilation units were fully analyzed
+23:25:51.402 INFO  0 compilation units were partially analyzed: 0 stopped on Config, 0 stopped on Parsing, 0 stopped on AST, 0 stopped on Symbolic Execution, and 0 stopped on Symbolic Execution with Parsing Error
+23:25:51.402 INFO  54 rules with 'symbolic-execution' tag raised 0 out of 11 issues
+23:25:51.402 DEBUG 0 out of 11 issues had a secondary on a non-indexed file
+23:25:51.402 DEBUG 0 out of 0 symbolic-execution issues had a flow step on a non-indexed file
+23:25:51.402 INFO  Performance statistics per analysis stage (Total, Average, Percentage) across 4 compilation units:
+config: 24ms, 6ms, 0.87%
+parsing: 2702ms, 675ms, 97.44%
+annotation: 15ms, 3ms, 0.54%
+astRules: 17ms, 4ms, 0.61%
+symbolicExecution: 15ms, 3ms, 0.54%
+ctuPreparation: null
+
+23:25:51.402 INFO  PCH: unique=0 use=0 (forceInclude=0,throughHeader=0,firstInclude=0) out of 4 (forceInclude=0,throughHeader=0)
+23:25:51.402 INFO  Z3 refutation rate: 0 out of 0
+23:25:51.403 INFO  Percentage of files indexed with CFamily languages: 100% (C: 3, C++: 6, ObjC: 0, AnyLang: 9)
+23:25:51.403 INFO  C and C++ analysis quality score: 100/100
+23:25:51.403 INFO  Analysis measures statistics:
+100% of classes were parsed successfully (0 out of 3 have parsing errors)
+100% of functions were parsed successfully (0 out of 38 have parsing errors)
+100% of statements were parsed successfully (0 out of 73 have parsing errors)
+100% of the project includes directives were resolved (0 out of 30 were not resolved)
+0 external includes directives were not resolved
+0 modules imports were not resolved
+0 header units were not resolved
+23:25:51.405 DEBUG Missing headers stats: All headers were resolved successfully
+23:25:51.405 DEBUG Missing modules stats: All modules were resolved successfully
+23:25:51.406 INFO  Incremental symbolic execution internal implementation statistics (across analyzed compilation units):
+Successful cache reads, writes: 0, 0 for 0 target compilation unit(s) (success rates 0%, 0%)
+Unsupported cases in USR conversion decoding, encoding: 0, 0
+Unsupported cases in issue-relocation decoding, encoding: 0, 0
+Unsupported cases in abs. line no. decoding, encoding: 0, 0
+Top-level declarations dropped decoding, encoding: 0, 0
+Replayed path diagnostics: 0
+Recorded path diagnostics: 0
+Overwritten path diagnostic targets: 0
+23:25:51.408 DEBUG CFamily Java memory usage statistics (used, peak) with initial 96 used:
+At the end of analysis setup: 86, 125
+At the end of lexical analysis: 92, 92
+At the end of analysis requests computation: 94, 94
+At the end of the analysis: 61, 113
+At the end of the sensor: 67 , 67
+Note that these values may not be accurate due to garbage collection; they should only be used to detect significant outliers.
+23:25:51.408 INFO  Sensor CFamily [cpp] (done) | time=3266ms
+23:25:51.411 INFO  ------------- Run sensors on project
+23:25:51.461 DEBUG 'CFamilyTaintAnalysis' skipped because of missing configuration requirements.
+Accessed configuration:
+- sonar.cfamily.internal.taintAnalysis: <empty>
+23:25:51.461 DEBUG 'gcov' skipped because of missing configuration requirements.
+Accessed configuration:
+- sonar.cfamily.internal.taintAnalysis: <empty>
+- sonar.cfamily.gcov.reportsPath: <empty>
+23:25:51.461 DEBUG 'llvm-cov' skipped because of missing configuration requirements.
+Accessed configuration:
+- sonar.cfamily.internal.taintAnalysis: <empty>
+- sonar.cfamily.llvm-cov.reportPath: <empty>
+- sonar.cfamily.gcov.reportsPath: <empty>
+23:25:51.461 DEBUG 'cppunit' skipped because of missing configuration requirements.
+Accessed configuration:
+- sonar.cfamily.internal.taintAnalysis: <empty>
+- sonar.cfamily.cppunit.reportsPath: <empty>
+- sonar.cfamily.llvm-cov.reportPath: <empty>
+- sonar.cfamily.gcov.reportsPath: <empty>
+23:25:51.461 DEBUG 'VisualStudioCoverage' skipped because of missing configuration requirements.
+Accessed configuration:
+- sonar.cfamily.internal.taintAnalysis: <empty>
+- sonar.cfamily.vscoveragexml.reportsPath: <empty>
+- sonar.cfamily.cppunit.reportsPath: <empty>
+- sonar.cfamily.llvm-cov.reportPath: <empty>
+- sonar.cfamily.gcov.reportsPath: <empty>
+23:25:51.462 DEBUG 'bullseye' skipped because of missing configuration requirements.
+Accessed configuration:
+- sonar.cfamily.internal.taintAnalysis: <empty>
+- sonar.cfamily.vscoveragexml.reportsPath: <empty>
+- sonar.cfamily.cppunit.reportsPath: <empty>
+- sonar.cfamily.llvm-cov.reportPath: <empty>
+- sonar.cfamily.bullseye.reportPath: <empty>
+- sonar.cfamily.gcov.reportsPath: <empty>
+23:25:51.462 DEBUG 'cobertura' skipped because of missing configuration requirements.
+Accessed configuration:
+- sonar.cfamily.internal.taintAnalysis: <empty>
+- sonar.cfamily.vscoveragexml.reportsPath: <empty>
+- sonar.cfamily.cppunit.reportsPath: <empty>
+- sonar.cfamily.llvm-cov.reportPath: <empty>
+- sonar.cfamily.cobertura.reportPaths: <empty>
+- sonar.cfamily.bullseye.reportPath: <empty>
+- sonar.cfamily.gcov.reportsPath: <empty>
+23:25:51.462 DEBUG 'Valgrind' skipped because of missing configuration requirements.
+Accessed configuration:
+- sonar.cfamily.internal.taintAnalysis: <empty>
+- sonar.cfamily.vscoveragexml.reportsPath: <empty>
+- sonar.cfamily.cppunit.reportsPath: <empty>
+- sonar.cfamily.llvm-cov.reportPath: <empty>
+- sonar.cfamily.cobertura.reportPaths: <empty>
+- sonar.cfamily.valgrind.reportsPaths: <empty>
+- sonar.cfamily.bullseye.reportPath: <empty>
+- sonar.cfamily.gcov.reportsPath: <empty>
+23:25:51.462 DEBUG 'Import external issues report from SARIF file.' skipped because of missing configuration requirements.
+Accessed configuration:
+- sonar.cfamily.internal.taintAnalysis: <empty>
+- sonar.cfamily.vscoveragexml.reportsPath: <empty>
+- sonar.cfamily.cppunit.reportsPath: <empty>
+- sonar.cfamily.llvm-cov.reportPath: <empty>
+- sonar.cfamily.cobertura.reportPaths: <empty>
+- sonar.cfamily.valgrind.reportsPaths: <empty>
+- sonar.cfamily.bullseye.reportPath: <empty>
+- sonar.sarifReportPaths: <empty>
+- sonar.cfamily.gcov.reportsPath: <empty>
+23:25:51.462 DEBUG 'Java CPD Block Indexer' skipped because there is no related file in current project
+23:25:51.462 DEBUG Sensors : Zero Coverage Sensor
+23:25:51.462 INFO  Sensor Zero Coverage Sensor
+23:25:51.465 INFO  Sensor Zero Coverage Sensor (done) | time=2ms
+23:25:51.466 DEBUG ScaCliDownloadClient url: https://scanner.sonarcloud.io/tidelift-cli
+23:25:51.466 DEBUG Loading OS trusted SSL certificates...
+23:25:51.466 DEBUG This operation might be slow or even get stuck. You can skip it by passing the scanner property 'sonar.scanner.skipSystemTruststore=true'
+23:25:51.467 DEBUG Successfully loaded KeyStore of the type [KeychainStore] having [0] entries
+23:25:51.526 DEBUG Loaded [162] system trusted certificates
+23:25:51.535 DEBUG Loaded truststore from '/opt/homebrew/Cellar/openjdk/25.0.2/libexec/openjdk.jdk/Contents/Home/lib/security/cacerts' containing 109 certificates
+23:25:51.539 INFO  ------------- Gather SCA dependencies on project
+23:25:51.539 DEBUG Checking if SCA is enabled for organization anas4208-workspace
+23:25:51.539 DEBUG --> GET https://api.sonarcloud.io/sca/feature-enabled?organization=anas4208-workspace
+23:25:51.978 DEBUG <-- 200 https://api.sonarcloud.io/sca/feature-enabled?organization=anas4208-workspace (437ms, unknown-length body)
+23:25:51.980 INFO  Dependency analysis skipped
+23:25:51.985 INFO  CPD Executor Calculating CPD for 9 files
+23:25:51.986 DEBUG Detection of duplications for /Users/Anas/Desktop/Elmenus-System/main_working.cpp
+23:25:51.993 DEBUG Detection of duplications for /Users/Anas/Desktop/Elmenus-System/User.cpp
+23:25:51.994 DEBUG Detection of duplications for /Users/Anas/Desktop/Elmenus-System/DeliveryDriver.cpp
+23:25:51.995 DEBUG Detection of duplications for /Users/Anas/Desktop/Elmenus-System/main.cpp
+23:25:51.996 DEBUG Detection of duplications for /Users/Anas/Desktop/Elmenus-System/User.h
+23:25:51.997 DEBUG Detection of duplications for /Users/Anas/Desktop/Elmenus-System/DeliveryDriver.h
+23:25:51.997 DEBUG Detection of duplications for /Users/Anas/Desktop/Elmenus-System/Customer.cpp
+23:25:51.997 DEBUG Detection of duplications for /Users/Anas/Desktop/Elmenus-System/main_simple.cpp
+23:25:51.998 DEBUG Detection of duplications for /Users/Anas/Desktop/Elmenus-System/Customer.h
+23:25:51.999 INFO  CPD Executor CPD calculation finished (done) | time=13ms
+23:25:52.000 INFO  SCM Publisher SCM provider for this project is: git
+23:25:52.001 INFO  SCM Publisher 9 source files to be analyzed
+23:25:52.003 DEBUG Collecting committed files
+23:25:52.012 DEBUG Thread[#65,ForkJoinPool.commonPool-worker-1,5,main]: start measure timestamp resolution /System/Volumes/Data (/dev/disk3s5) in /Users/Anas/Desktop/Elmenus-System/.git
+23:25:52.013 DEBUG Thread[#65,ForkJoinPool.commonPool-worker-1,5,main]: end measure timestamp resolution /System/Volumes/Data (/dev/disk3s5) in /Users/Anas/Desktop/Elmenus-System/.git; got PT0.000002S
+23:25:52.013 DEBUG Thread[#65,ForkJoinPool.commonPool-worker-1,5,main]: start measure minimal racy interval in /Users/Anas/Desktop/Elmenus-System/.git
+23:25:52.117 DEBUG Thread[#1,main,5,main]: use fallback timestamp resolution for directory /Users/Anas/Desktop/Elmenus-System/.git
+23:25:52.122 DEBUG Collecting committed files (done) | time=118ms
+23:25:52.122 DEBUG Using GIT_NATIVE_BLAME strategy to blame files
+23:25:52.125 DEBUG [main] Executing command [[git, --version]]...
+23:25:52.180 DEBUG [main] Command [[git, --version]] executed with exit value [0]
+23:25:52.181 DEBUG Found GIT version: 2.50.1
+23:25:52.182 INFO  SCM Publisher 0/9 source files have been analyzed (done) | time=181ms
+23:25:52.182 WARN  Missing blame information for the following files:
+23:25:52.182 WARN    * main.cpp
+23:25:52.182 WARN    * main_working.cpp
+23:25:52.182 WARN    * User.h
+23:25:52.183 WARN    * User.cpp
+23:25:52.183 WARN    * Customer.cpp
+23:25:52.183 WARN    * Customer.h
+23:25:52.183 WARN    * DeliveryDriver.cpp
+23:25:52.183 WARN    * main_simple.cpp
+23:25:52.183 WARN    * DeliveryDriver.h
+23:25:52.183 WARN  This may lead to missing/broken features in SonarCloud
+23:25:52.186 INFO  SCM revision ID '007f39c575d66952272b54621444ecdf57c5d2df'
+23:25:52.213 DEBUG Could not detect the dotnet / msbuild version
+23:25:52.213 DEBUG MSBuild version NOT found.
+23:25:52.265 INFO  Analysis report generated in 80ms, dir size=373 KB
+23:25:52.286 INFO  Analysis report compressed in 22ms, zip size=83 KB
+23:25:52.286 INFO  Analysis report generated in /Users/Anas/Desktop/Elmenus-System/.scannerwork/scanner-report
+23:25:52.286 DEBUG Upload report
+23:25:52.288 DEBUG --> POST https://sonarcloud.io/api/ce/submit?organization=anas4208-workspace&projectKey=anas4208-workspace_anas4208-workspace&projectName=Elmenus%20Management%20System (85860-byte body)
+23:25:52.754 DEBUG <-- 200 https://sonarcloud.io/api/ce/submit?organization=anas4208-workspace&projectKey=anas4208-workspace_anas4208-workspace&projectName=Elmenus%20Management%20System (466ms, 44-byte body)
+23:25:52.755 INFO  Analysis report uploaded in 469ms
+23:25:52.756 DEBUG Report metadata written to /Users/Anas/Desktop/Elmenus-System/.scannerwork/report-task.txt
+23:25:52.756 INFO  ANALYSIS SUCCESSFUL, you can find the results at: https://sonarcloud.io/dashboard?id=anas4208-workspace_anas4208-workspace
+23:25:52.756 INFO  Note that you will be able to access the updated dashboard once the server has processed the submitted analysis report
+23:25:52.756 INFO  More about the report processing at https://sonarcloud.io/api/ce/task?id=AZ2nornQkNJ23dZayt-j
+23:25:52.756 INFO  ------------- Upload SCA dependency files
+23:25:52.756 DEBUG No architecture data to send, skipping architecture reporting
+23:25:52.760 DEBUG --> GET https://api.sonarcloud.io/analysis/sensor-cache/prepare-write?organization=anas4208-workspace&project=anas4208-workspace_anas4208-workspace
+23:25:52.910 DEBUG <-- 200 https://api.sonarcloud.io/analysis/sensor-cache/prepare-write?organization=anas4208-workspace&project=anas4208-workspace_anas4208-workspace (149ms, unknown-length body)
+23:25:52.911 DEBUG --> PUT https://analysis-sensorcache-eu-central-1-prod.s3.eu-central-1.amazonaws.com/AZ2iPos4kF4Bz7UfeEe_/AZ2iPxQTkF4Bz7UfeEgH/AZ2iPxQTkF4Bz7UfeEgH?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEEUaDGV1LWNlbnRyYWwtMSJHMEUCIQDUVuXavJySdpSathi3lva%2BiqTOpTDhwb0Z%2BjnwdO82CAIgBP7Y3cxyuw6MQkiJWdMcFZJ9in%2FV2ze2GadIBLQo%2BooqtAQIDhADGgw0ODgwNTk5NjU2MzUiDE%2BpDIZy1njW0DJdxiqRBLViY%2FplbCDu1Pv1kcqrFP0OgIX7hjkgnr40ssjcUFe401ejXeAymYqkyreVIUmWn3KBYCEJw43qwSM0g9sJC1butHri2PohmGajeUO4ch3%2BcaaGKH2oqRROtzTutRmW7dj%2FPXJrMVfMEOEWXgObvfLcLxdjQ6ev3ry4HQ6RRJoFQagjOHHZamfq%2BTOJG9xd0PqvFmcZQKZMgOcLyJ7A3Nm3xGiCUStLxolx2SL5ryN6uvm20FNtV4nF%2Bsyv5KPvxWs3yiOyechTZPokHjQh%2FYqVjCQcNsA8ty92Ygd7TgSIWddnERq9yDUlAxBf%2BMw%2BKU9NWVi2TtHNAukAGycBiT9emF7tbBJwE7DP1sSNaE3w4rFwyOemHjewt16AXrLTrM%2BEkYf%2B4HA%2BcAU2shJ4DdmeYdXBNX30uc4Bztiu4Qk2Umrx2%2BqEmVsZHlBqkOrTqXpOKcty%2F5rUJBC%2FgBN2ODfz%2FBzOJvYqWzzsm%2FTF2hAOSawkj2xBduLH602NEuX0236LMoGoBSX7G6bK%2BI4X8iBYvJ0dqNEtOtEb36W9tHo1LbDgDh4SksVGHKs%2FQd%2BQlpMbi2keVU47b3xyfiV0U1zDLsr8pphA%2BDRaZp2k%2BuBzVETvcFOD7iwz6m%2F%2BtbAw7MXwP%2BRUtJsxyG1Rgul4LQC4vtr4NqFo7zRLJ11MYoB5xtZALXWfN94KpB8Yt78AbD4wroiVzwY6ogFlHcBDwJ1GmxDEVau%2FpxG9idUJ0SHaIDRNANPoxAQvnZ1C7JurIrvkFpxt3waDOHcaPJcCHWO6pFrY0qxLRpFuGvPE8GGuK%2BAXwY5mOdH%2BBozBWF8GXBDvxJVXWcATAJTBA9w3sgS4HzoYiX9xLCYfg0K%2FouHHVZNHS5AAAS7V6at3qpjeu1cMf2%2BxD%2F8XvBabwWua%2F6iYd13JVcKuj0WHzQU%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260419T212552Z&X-Amz-SignedHeaders=host&X-Amz-Credential=ASIAXDIVECDBZNNHDHX4%2F20260419%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=900&X-Amz-Signature=7ad04fe3ce9e36e0f8ca3c4d6322d07bf10e24b618ae1b5269acc5ba4b9b15b9 (54093-byte body)
+23:25:53.588 DEBUG <-- 200 OK https://analysis-sensorcache-eu-central-1-prod.s3.eu-central-1.amazonaws.com/AZ2iPos4kF4Bz7UfeEe_/AZ2iPxQTkF4Bz7UfeEgH/AZ2iPxQTkF4Bz7UfeEgH?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEEUaDGV1LWNlbnRyYWwtMSJHMEUCIQDUVuXavJySdpSathi3lva%2BiqTOpTDhwb0Z%2BjnwdO82CAIgBP7Y3cxyuw6MQkiJWdMcFZJ9in%2FV2ze2GadIBLQo%2BooqtAQIDhADGgw0ODgwNTk5NjU2MzUiDE%2BpDIZy1njW0DJdxiqRBLViY%2FplbCDu1Pv1kcqrFP0OgIX7hjkgnr40ssjcUFe401ejXeAymYqkyreVIUmWn3KBYCEJw43qwSM0g9sJC1butHri2PohmGajeUO4ch3%2BcaaGKH2oqRROtzTutRmW7dj%2FPXJrMVfMEOEWXgObvfLcLxdjQ6ev3ry4HQ6RRJoFQagjOHHZamfq%2BTOJG9xd0PqvFmcZQKZMgOcLyJ7A3Nm3xGiCUStLxolx2SL5ryN6uvm20FNtV4nF%2Bsyv5KPvxWs3yiOyechTZPokHjQh%2FYqVjCQcNsA8ty92Ygd7TgSIWddnERq9yDUlAxBf%2BMw%2BKU9NWVi2TtHNAukAGycBiT9emF7tbBJwE7DP1sSNaE3w4rFwyOemHjewt16AXrLTrM%2BEkYf%2B4HA%2BcAU2shJ4DdmeYdXBNX30uc4Bztiu4Qk2Umrx2%2BqEmVsZHlBqkOrTqXpOKcty%2F5rUJBC%2FgBN2ODfz%2FBzOJvYqWzzsm%2FTF2hAOSawkj2xBduLH602NEuX0236LMoGoBSX7G6bK%2BI4X8iBYvJ0dqNEtOtEb36W9tHo1LbDgDh4SksVGHKs%2FQd%2BQlpMbi2keVU47b3xyfiV0U1zDLsr8pphA%2BDRaZp2k%2BuBzVETvcFOD7iwz6m%2F%2BtbAw7MXwP%2BRUtJsxyG1Rgul4LQC4vtr4NqFo7zRLJ11MYoB5xtZALXWfN94KpB8Yt78AbD4wroiVzwY6ogFlHcBDwJ1GmxDEVau%2FpxG9idUJ0SHaIDRNANPoxAQvnZ1C7JurIrvkFpxt3waDOHcaPJcCHWO6pFrY0qxLRpFuGvPE8GGuK%2BAXwY5mOdH%2BBozBWF8GXBDvxJVXWcATAJTBA9w3sgS4HzoYiX9xLCYfg0K%2FouHHVZNHS5AAAS7V6at3qpjeu1cMf2%2BxD%2F8XvBabwWua%2F6iYd13JVcKuj0WHzQU%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260419T212552Z&X-Amz-SignedHeaders=host&X-Amz-Credential=ASIAXDIVECDBZNNHDHX4%2F20260419%2Feu-central-1%2Fs3%2Faws4_request&X-Amz-Expires=900&X-Amz-Signature=7ad04fe3ce9e36e0f8ca3c4d6322d07bf10e24b618ae1b5269acc5ba4b9b15b9 (676ms, 0-byte body)
+23:25:53.588 INFO  Sensor cache published successfully
+23:25:53.588 DEBUG Quality Gate check disabled - skipping
+23:25:53.589 DEBUG Post-jobs : 
+23:25:53.610 INFO  Analysis total time: 12.839 s
+23:25:53.611 INFO  SonarScanner Engine completed successfully
+23:25:53.612 DEBUG Cleanup org.eclipse.jgit.util.FS$FileStoreAttributes$$Lambda/0x00000070013ae450@5b3bb1f7 during JVM shutdown
+23:25:54.022 INFO  EXECUTION SUCCESS
+23:25:54.023 INFO  Total time: 18.128s

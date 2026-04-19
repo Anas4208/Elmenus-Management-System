@@ -1,0 +1,26 @@
+1
+C001
+John Doe
+1234567890
+123 Main Street
+1
+C002
+Jane Smith
+0987654321
+456 Oak Avenue
+2
+D001
+Bob Wilson
+5551234567
+Delivery Van
+2
+D002
+Alice Brown
+5559876543
+Motorcycle
+3
+C001
+4
+D001
+5
+6
