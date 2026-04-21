@@ -62,3 +62,5 @@ SonarCloud_*.pdf
 
 # OS files
 Thumbs.db
+coverage_report/
+coverage_report
