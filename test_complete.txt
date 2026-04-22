@@ -1,0 +1,138 @@
+# Test 1: Register Customers (including duplicate check)
+1
+C001
+John Customer
+1111111111
+123 Main St
+1
+C002
+Jane Customer
+2222222222
+456 Oak Ave
+1
+C001
+Duplicate Customer
+3333333333
+Duplicate Address
+
+# Test 2: Register Drivers (including duplicate check)
+2
+D001
+Bob Driver
+4444444444
+Van
+2
+D002
+Alice Driver
+5555555555
+Motorcycle
+2
+D001
+Duplicate Driver
+6666666666
+Car
+
+# Test 3: Create Orders
+3
+ORD001
+C001
+3
+ORD002
+C002
+
+# Test 4: Add Items to Orders
+4
+ORD001
+Pizza
+50
+2
+4
+ORD001
+Salad
+30
+1
+4
+ORD001
+Drink
+10
+3
+4
+ORD002
+Burger
+40
+1
+4
+ORD002
+Fries
+20
+2
+
+# Test 5: Assign Drivers to Orders
+5
+ORD001
+D001
+5
+ORD002
+D002
+
+# Test 6: Update Order Status (all statuses)
+6
+ORD001
+1
+6
+ORD001
+2
+6
+ORD001
+3
+6
+ORD002
+1
+6
+ORD002
+2
+6
+ORD002
+3
+
+# Test 7: Display Order Details
+7
+ORD001
+7
+ORD002
+
+# Test 8: Display Customer Info
+8
+C001
+8
+C002
+8
+C999
+
+# Test 9: Display Driver Info
+9
+D001
+9
+D002
+9
+D999
+
+# Test 10: Compare Orders
+10
+ORD001 ORD002
+
+# Test 11: System Statistics
+11
+
+# Test 12: File Operations
+12
+13
+14
+
+# Test 13: Binary File Operations
+15
+1
+16
+
+# Test 14: Exit
+17
