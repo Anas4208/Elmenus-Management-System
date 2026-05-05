@@ -1,543 +1,280 @@
-/*Anas Mohamed gamal 20246022
-Ziad Gawad 20246055
-group G6*/
-#include <iostream>
-#include <fstream>
-#include <chrono>
-#include <iostream>
-#include <cstring>
-#include "FoodItem.h"
-#include "Customer.h"
-#include "DeliveryDriver.h"
 #include "Order.h"
+#include "FileOps.h"
+#include <iostream>
+#include <string>
+#include <vector>
+#include <limits>
 
-using namespace std;
-// customers array
-Customer** customers;
-int customerCount = 0;
-int customerCapacity = 10;
+// ── helpers ───────────────────────────────────────────────────────────────────
+static void clearInput() {
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+}
 
-// drivers Array
-DeliveryDriver** drivers;
-int driverCount = 0;
-int driverCapacity = 10;
-
-// orders Array
-Order** orders;
-int orderCount = 0;
-int orderCapacity = 10;
-
-void saveOrders( Order *orders[],int count) {
-    ofstream outFile("completed_orders.txt");  
-    if(outFile) {
-        for(int i=0;i<count;i++) {
-            if(orders[i]->getStatus() == OrderStatus::DELIVERED) {
-                outFile << "ID: " << orders[i]->getOrderId()<< " total: " << orders[i]->calculateTotal() << endl;
-                cout << "saved order" << orders[i]->getOrderId() << endl;
-            }
+static int readInt(const std::string& prompt) {
+    int value = 0;
+    while (true) {
+        std::cout << prompt;
+        if (std::cin >> value) {
+            clearInput();
+            return value;
         }
-        outFile.close();
+        std::cout << "Invalid input. Please enter a whole number.\n";
+        clearInput();
+    }
+}
+
+static double readDouble(const std::string& prompt) {
+    double value = 0.0;
+    while (true) {
+        std::cout << prompt;
+        if (std::cin >> value) {
+            clearInput();
+            return value;
+        }
+        std::cout << "Invalid input. Please enter a number.\n";
+        clearInput();
+    }
+}
+
+static std::string readString(const std::string& prompt) {
+    std::string value;
+    std::cout << prompt;
+    std::getline(std::cin, value);
+    return value;
+}
+
+// ── menu actions ──────────────────────────────────────────────────────────────
+static void addCustomer(std::vector<Customer*>& customers) {
+    std::string uid  = readString("Customer ID   : ");
+    std::string name = readString("Name          : ");
+    std::string phone = readString("Phone         : ");
+    std::string addr  = readString("Address       : ");
+    customers.push_back(new Customer(uid, name, phone, addr));
+    std::cout << "Customer added.\n";
+}
+
+static void addDriver(std::vector<DeliveryDriver*>& drivers) {
+    std::string uid     = readString("Driver ID     : ");
+    std::string name    = readString("Name          : ");
+    std::string phone   = readString("Phone         : ");
+    std::string vehicle = readString("Vehicle type  : ");
+    drivers.push_back(new DeliveryDriver(uid, name, phone, vehicle));
+    std::cout << "Driver added.\n";
+}
+
+static void createOrder(std::vector<Order*>& orders,
+                        const std::vector<Customer*>& customers) {
+    if (customers.empty()) {
+        std::cout << "No customers available. Add a customer first.\n";
+        return;
+    }
+    std::cout << "Available customers:\n";
+    for (int i = 0; i < static_cast<int>(customers.size()); ++i) {
+        std::cout << "  " << i + 1 << ". " << customers[i]->getName() << "\n";
+    }
+    int choice = readInt("Select customer (number): ");
+    if (choice < 1 || choice > static_cast<int>(customers.size())) {
+        std::cout << "Invalid selection.\n";
+        return;
+    }
+    std::string oid = readString("Order ID: ");
+    orders.push_back(new Order(oid, customers[choice - 1]));
+    std::cout << "Order created.\n";
+}
+
+static void addItemToOrder(std::vector<Order*>& orders) {
+    if (orders.empty()) {
+        std::cout << "No orders available.\n";
+        return;
+    }
+    std::cout << "Available orders:\n";
+    for (int i = 0; i < static_cast<int>(orders.size()); ++i) {
+        std::cout << "  " << i + 1 << ". Order " << orders[i]->getOrderId() << "\n";
+    }
+    int choice = readInt("Select order (number): ");
+    if (choice < 1 || choice > static_cast<int>(orders.size())) {
+        std::cout << "Invalid selection.\n";
+        return;
+    }
+    std::string itemName = readString("Item name : ");
+    double price  = readDouble("Price     : ");
+    int    qty    = readInt   ("Quantity  : ");
+    if (price <= 0.0 || qty <= 0) {
+        std::cout << "Price and quantity must be positive.\n";
+        return;
+    }
+    *orders[choice - 1] += FoodItem(itemName, price, qty);
+    std::cout << "Item added.\n";
+}
+
+static void assignDriverToOrder(std::vector<Order*>& orders,
+                                const std::vector<DeliveryDriver*>& drivers) {
+    if (orders.empty() || drivers.empty()) {
+        std::cout << "Need at least one order and one driver.\n";
+        return;
+    }
+    std::cout << "Orders:\n";
+    for (int i = 0; i < static_cast<int>(orders.size()); ++i) {
+        std::cout << "  " << i + 1 << ". " << orders[i]->getOrderId() << "\n";
+    }
+    int oc = readInt("Select order: ");
+    if (oc < 1 || oc > static_cast<int>(orders.size())) {
+        std::cout << "Invalid.\n"; return;
+    }
+    std::cout << "Drivers:\n";
+    for (int i = 0; i < static_cast<int>(drivers.size()); ++i) {
+        std::cout << "  " << i + 1 << ". " << drivers[i]->getName() << "\n";
+    }
+    int dc = readInt("Select driver: ");
+    if (dc < 1 || dc > static_cast<int>(drivers.size())) {
+        std::cout << "Invalid.\n"; return;
+    }
+    orders[oc - 1]->assignDriver(drivers[dc - 1]);
+    std::cout << "Driver assigned.\n";
+}
+
+static void updateOrderStatus(std::vector<Order*>& orders) {
+    if (orders.empty()) {
+        std::cout << "No orders.\n"; return;
+    }
+    std::cout << "Orders:\n";
+    for (int i = 0; i < static_cast<int>(orders.size()); ++i) {
+        std::cout << "  " << i + 1 << ". " << orders[i]->getOrderId() << "\n";
+    }
+    int oc = readInt("Select order: ");
+    if (oc < 1 || oc > static_cast<int>(orders.size())) {
+        std::cout << "Invalid.\n"; return;
+    }
+    std::cout << "Status options:\n"
+              << "  1. PENDING\n  2. PREPARING\n"
+              << "  3. OUT_FOR_DELIVERY\n  4. DELIVERED\n  5. CANCELLED\n";
+    int sc = readInt("Select status: ");
+    OrderStatus newStatus;
+    switch (sc) {
+        case 1: newStatus = OrderStatus::PENDING;          break;
+        case 2: newStatus = OrderStatus::PREPARING;        break;
+        case 3: newStatus = OrderStatus::OUT_FOR_DELIVERY; break;
+        case 4: newStatus = OrderStatus::DELIVERED;        break;
+        case 5: newStatus = OrderStatus::CANCELLED;        break;
+        default:
+            std::cout << "Invalid status.\n";
+            return;
+    }
+    orders[oc - 1]->updateStatus(newStatus);
+    std::cout << "Status updated.\n";
+}
+
+static void displayAllOrders(const std::vector<Order*>& orders) {
+    if (orders.empty()) {
+        std::cout << "No orders.\n"; return;
+    }
+    for (const Order* o : orders) {
+        std::cout << *o;
+    }
+}
+
+static void displayAllCustomers(const std::vector<Customer*>& customers) {
+    if (customers.empty()) {
+        std::cout << "No customers.\n"; return;
+    }
+    for (const Customer* c : customers) { c->displayInfo(); }
+}
+
+static void displayAllDrivers(const std::vector<DeliveryDriver*>& drivers) {
+    if (drivers.empty()) {
+        std::cout << "No drivers.\n"; return;
+    }
+    for (const DeliveryDriver* d : drivers) { d->displayInfo(); }
+}
+
+static void compareOrders(const std::vector<Order*>& orders) {
+    if (orders.size() < 2) {
+        std::cout << "Need at least 2 orders to compare.\n"; return;
+    }
+    std::cout << "Select first order:\n";
+    for (int i = 0; i < static_cast<int>(orders.size()); ++i) {
+        std::cout << "  " << i + 1 << ". " << orders[i]->getOrderId() << "\n";
+    }
+    int a = readInt("First: ");
+    int b = readInt("Second: ");
+    if (a < 1 || a > static_cast<int>(orders.size()) ||
+        b < 1 || b > static_cast<int>(orders.size())) {
+        std::cout << "Invalid selection.\n"; return;
+    }
+    if (*orders[a - 1] > *orders[b - 1]) {
+        std::cout << orders[a - 1]->getOrderId()
+                  << " has a higher total.\n";
     } else {
-        cout << "error opening file" << endl;
+        std::cout << orders[b - 1]->getOrderId()
+                  << " has a higher or equal total.\n";
     }
 }
-void saveDriver( DeliveryDriver *drivers[],int count){
-    ofstream outfile("driver_stats.txt");
-    //check if file is open
-    if(outfile){
-        for(int i=0;i<count;i++){
-            //copy to file
-            outfile<<"total earnings "<<drivers[i]->getTotalEarnings()<<"total deliveries "<<drivers[i]->getCompletedDeliveries()<<endl;
-        }
-        outfile.close();
-    } else {
-        cout << "error opening file" << endl;
-    }
 
-}
-struct Item {
-    char name[50];
-    double price;
-    int quantity;
-};
-
-struct OrderRecord {
-    char orderId[20];
-    char customerName[50];
-    char driverName[50];
-    double totalAmount;
-    int status;
-    int itemCount;
-    Item items[10];
-
-};
-
-
-void saveOrdersToBinary() {
-    ofstream outFile("orders.dat", ios::binary | ios::out);
-    if (!outFile) {
-        cout << "error opening file" << endl;
-        return;
-    }
-
-    int savedCount = 0;
-    for (int i=0; i<orderCount; i++) {
-        OrderRecord record;
-        Order* currentOrder = orders[i];
-        
-        // copy string data into fixed-size char arrays
-        strncpy(record.orderId, currentOrder->getOrderId().c_str(), sizeof(record.orderId) - 1);
-        strncpy(record.customerName, currentOrder->getCustomer()->getName().c_str(), sizeof(record.customerName) - 1);
-        strncpy(record.driverName, currentOrder->getDriver()->getName().c_str(), sizeof(record.driverName) - 1);
-        record.totalAmount = currentOrder->calculateTotal();
-        record.status = (int)currentOrder->getStatus();
-        
-        // copy items (up to 10)
-        record.itemCount = 0;
-        int currentItems = currentOrder->getItemCount();
-        
-        // access items   
-        for (int j=0; j<currentItems && j<10; j++) {
-            FoodItem& item = (*currentOrder)[j];
-            strncpy(record.items[j].name, item.getItemName().c_str(), 49);
-            record.items[j].price = item.getPrice();
-            record.items[j].quantity = item.getQuantity();
-            record.itemCount++;
-        }
-
-        // write the struct to file
-        outFile.write(reinterpret_cast<char*>(&record), sizeof(OrderRecord));
-        savedCount++;
-    }
-    
-    
-    outFile.close();
-    cout << "successfully saved " << savedCount << " orders" << endl;
+// ── freeAll ───────────────────────────────────────────────────────────────────
+static void freeAll(std::vector<Order*>& orders,
+                    std::vector<Customer*>& customers,
+                    std::vector<DeliveryDriver*>& drivers) {
+    for (Order*         o : orders)    { delete o; }
+    for (Customer*      c : customers) { delete c; }
+    for (DeliveryDriver* d : drivers)  { delete d; }
+    orders.clear();
+    customers.clear();
+    drivers.clear();
 }
 
-void loadOrderFromBinary(int num) {
-    ifstream inFile("orders.dat", ios::binary);
-    if (!inFile) {
-        cout << "error could not open file" << endl;
-        return;
-    }
+// ── main ──────────────────────────────────────────────────────────────────────
+int main() {
+    std::vector<Customer*>       customers;
+    std::vector<DeliveryDriver*> drivers;
+    std::vector<Order*>          orders;
 
-    // check total records to validate index
-    inFile.seekg(0, ios::end);
-    long fileSize = inFile.tellg();
-    int totalRecords = fileSize / sizeof(OrderRecord);
+    bool running = true;
+    while (running) {
+        std::cout << "\n======== EIMenus Order Management ========\n"
+                  << " 1.  Add Customer\n"
+                  << " 2.  Add Driver\n"
+                  << " 3.  Create Order\n"
+                  << " 4.  Add Item to Order\n"
+                  << " 5.  Assign Driver to Order\n"
+                  << " 6.  Update Order Status\n"
+                  << " 7.  Display All Orders\n"
+                  << " 8.  Display All Customers\n"
+                  << " 9.  Display All Drivers\n"
+                  << "10.  Compare Two Orders\n"
+                  << "11.  Save Completed Orders to File\n"
+                  << "12.  Save Driver Stats to File\n"
+                  << "13.  Show System Stats\n"
+                  << " 0.  Exit\n"
+                  << "==========================================\n";
 
-    if (num <1 || num > totalRecords) {
-        cout << "error index, total records: " << totalRecords << endl;
-        return;
-    }
-
-    // start timer
-    auto start = chrono::high_resolution_clock::now();
-
-    // jump directly to the specific record
-    int pos = (num-1) * sizeof(OrderRecord);
-    inFile.seekg(pos, ios::beg);
-    // read to file to desired position
-    OrderRecord record;
-    inFile.read(reinterpret_cast<char*>(&record), sizeof(OrderRecord));
-
-    // end timer
-    auto end = chrono::high_resolution_clock::now();
-    chrono::duration<double, nano> elapsed = end - start;
-
-    inFile.close();
-    // display Record
-    cout << "time taken: " << elapsed.count()<< endl;
-    cout << "order ID: " << record.orderId << endl;
-    cout << "customer: " << record.customerName << endl;
-    cout << "driver:   " << record.driverName << endl;
-    cout << "items:" << endl;
-    for(int i=0; i<record.itemCount; i++) {
-         cout<< record.items[i].name << " (" << record.items[i].quantity << ")" << endl;
-    }
-    cout << "total: " << record.totalAmount << " EGP" << endl;
-}
-void showBinaryFileStats() {
-    //open file
-    ifstream inFile("orders.dat", ios::binary );
-    if (!inFile) {
-        cout << "no file found." << endl;
-        return;
-    }
-    long size = inFile.tellg();
-    cout << "file Size: " << size << endl;
-    cout << "record Size: " << sizeof(OrderRecord) << endl;
-    cout << "total Records: " << size / sizeof(OrderRecord) << endl;
-    inFile.close();
-}
-
-
-//dynamic resizing
-void resizeCustomers() {
-    int newCapacity = customerCapacity * 2;
-    Customer** newArr = new Customer*[newCapacity];
-    for (int i=0; i<customerCount; i++) {
-        newArr[i] = customers[i];
-    }
-    delete[] customers;
-    customers = newArr;
-    customerCapacity = newCapacity;
-}
-
-//dynamic resizing
-void resizeDrivers() {
-    int newCapacity = driverCapacity * 2;
-    DeliveryDriver** newArr = new DeliveryDriver*[newCapacity];
-    for (int i=0; i<driverCount; i++) {
-        newArr[i] = drivers[i];
-    }
-    delete[] drivers;
-    drivers = newArr;
-    driverCapacity = newCapacity;
-}
-
-//dynamic resizing
-void resizeOrders() {
-    int newCapacity = orderCapacity * 2;
-    Order** newArr = new Order*[newCapacity];
-    for (int i=0; i<orderCount; i++) {
-        newArr[i] = orders[i];
-    }
-    delete[] orders;
-    orders = newArr;
-    orderCapacity = newCapacity;
-}
-int main(){
-    customers = new Customer*[customerCapacity];
-    drivers = new DeliveryDriver*[driverCapacity];
-    orders = new Order*[orderCapacity];
-
-int choice;
-    do {
-        cout << " ELMENUS MANAGEMENT SYSTEM v1.0 " << endl;
-        cout<<"----------------------------------------------"<<endl;
-        cout<<"         USER MANAGEMENT                      "<<endl;
-        cout<<"----------------------------------------------"<<endl;
-        cout << "1. Register New Customer" << endl;
-        cout << "2. Register New Delivery Driver" << endl;
-        cout<<"----------------------------------------------"<<endl;
-        cout<<"         ORDER MANAGEMENT                     "<<endl;
-        cout<<"----------------------------------------------"<<endl;
-        cout << "3. Create New Order" << endl;
-        cout << "4. Add Items to Order" << endl;
-        cout << "5. Assign Driver to Order" << endl;
-        cout << "6. Update Order Status" << endl;
-        cout << "7. Display Order Details" << endl;
-        cout<<"----------------------------------------------"<<endl;
-        cout<<"         INFORMATION AND REPORTS              "<<endl;
-        cout<<"----------------------------------------------"<<endl;
-        cout << "8. Display Customer Info" << endl;
-        cout << "9. Display Driver Info" << endl;
-        cout << "10. Compare Two Orders by Total" << endl;
-        cout << "11. Display System Statistics" << endl;
-        cout<<"----------------------------------------------"<<endl;
-        cout<<"        FILE OPERATIONS                       "<<endl;
-        cout<<"----------------------------------------------"<<endl;
-        cout << "12. Save Completed Orders to File" << endl;
-        cout << "13. Save Driver Stats to File" << endl;
-        cout<<"----------------------------------------------"<<endl;
-        cout<<"        BONUS FEATURES                        "<<endl;
-        cout<<"----------------------------------------------"<<endl;
-        cout << "14. Save Orders to Binary File" << endl;
-        cout << "15. Load Order by Position (O(1))" << endl;
-        cout << "16. Binary File Statistics" << endl;
-        cout<<"----------------------------------------------"<<endl;
-        cout << "17. Exit System" << endl;
-        cout << "Enter choice: ";
-        cin>>choice;
-
-        switch(choice) {
-            case 1:  
-            {
-            if(customerCount==customerCapacity){
-                resizeCustomers();
-            }
-            string id, n, ph, ad;
-            cout << "enter customer ID: "; cin >> id;
-            cout << "enter name: "; 
-            cin.ignore();
-            getline(cin, n);
-            cout << "enter phone: ";
-            getline(cin, ph);
-            cout << "enter address: "; 
-            getline(cin, ad);
-            customers[customerCount++] = new Customer(id, n, ph, ad);
-            cout<<"customer registered"<<endl;}
-            break;
-
-            case 2:
-            {
-            if(driverCount==driverCapacity){
-                resizeDrivers();
-            }
-            string id, n, ph, v;
-            cout << "enter driver ID: "; 
-            cin >> id;
-            cin.ignore();
-            cout << "enter name: "; 
-            getline(cin, n);
-            cout << "enter phone: "; 
-            getline(cin, ph);
-            cout << "enter vehicle: "; 
-            getline(cin, v);
-            drivers[driverCount++] = new DeliveryDriver (id, n, ph, v,0,0.0);
-            cout<<"driver registered"<<endl;}
-            break;
-
-            case 3:
-            {
-            //validate that there is customers
-            if (customerCount == 0) { cout << "Register a customer first." << endl; 
-                break; }
-            if (orderCount == orderCapacity) {
-                resizeOrders();}
-            string orderId, custId;
-            cout<<"enter order ID: "<<endl;
-            cin>>orderId;
-            cout<<"enter customer ID: "<<endl;
-            cin>>custId;
-            Customer *thisCustomer=nullptr;
-            //search for the customer
-            for(int i=0; i<customerCount; i++){
-                if(custId==customers[i]->getUserId()){
-                    thisCustomer=customers[i]; 
-                    break;
-                }
-
-            }
-            if(thisCustomer){
-                orders[orderCount++] = new Order(orderId, thisCustomer);
-                cout<<"order created sucsessfully"<<endl;
-            }else {
-                cout<<"customer not found"<<endl;
-            }
-            }
-            break;
-
-            case 4:
-            {
-                if(orderCount==0){
-                    cout<<"no orders"<<endl;
-                    break;
-                }
-                string orderId;
-                Order *thisOrder=nullptr;
-                cout<<"enter order ID: "<<endl;
-                cin>>orderId;
-                //search for the order
-                for(int i=0; i<orderCount; i++){
-                    if(orderId==orders[i]->getOrderId()){
-                        thisOrder=orders[i];
-                        break;
-                    }
-                }
-            string n; double p; int qty;
-            cin.ignore();
-            cout << "enter item name: "; 
-            getline(cin, n);
-            cout << "enter price: "; 
-            cin >> p;
-            cout << "enter quantity: "; 
-            cin >> qty;
-            
-            FoodItem item(n, p, qty);
-            thisOrder->addItem(item);
-            cout << "item added" << endl;
-
-            }
-            break;
-            
-            case 5:
-            {
-                //validate that there is drivers
-                if(driverCount==0){
-                    cout<<"no drivers"<<endl;
-                    break;
-                }
-                string orderId;
-                Order *thisOrder=nullptr;
-                cout<<"enter order ID: "<<endl;
-                cin>>orderId;
-                //search for the order
-                for(int i=0; i<orderCount; i++){
-                    if(orderId==orders[i]->getOrderId()){
-                        thisOrder=orders[i];
-                    }
-                }
-                //makes sure order exists
-                if(thisOrder){
-                    string driverId;
-                    cout << "enter driver ID: "; 
-                    cin >> driverId;
-                    DeliveryDriver* selectedDriver = nullptr;
-                    for (int i = 0; i < driverCount; i++) {
-                        if (drivers[i]->getUserId() == driverId) { 
-                            selectedDriver = drivers[i];
-                            break; 
-                            }
-                    }
-                    //if user id matches driver id assign driver and update status
-                    if (selectedDriver) {
-                        thisOrder->assignDriver(selectedDriver);
-                        thisOrder->updateStatus(OrderStatus::OUT_FOR_DELIVERY);
-                        cout << "driver assigned " << endl;
-                    } else {
-                        cout << "driver not found " << endl;
-                    }
-                }else{
-                    cout<<"order not found "<<endl;
-                }
-                }
-                break;
-
-            case 6:
-            {
-                string orderId;
-                cout<<"enter order ID "<<endl;
-                cin>>orderId;
-                Order *thisOrder=nullptr;
-                //search for order using order id
-                for(int i=0; i<orderCount; i++){
-                    if(orderId==orders[i]->getOrderId()){
-                        thisOrder=orders[i];
-                        break;
-                    }
-                }
-            int status;
-            cout << "0:PENDING, 1:PREPARING, 2:OUT_FOR_DELIVERY, 3:DELIVERED, 4:CANCELLED" << endl;
-            cout << "select status: "; 
-            cin >> status;
-            //update status static cast to OrderStatus
-            if (status >= 0 && status <= 4) {
-                thisOrder->updateStatus(static_cast<OrderStatus>(status));
-                cout << "status updated " << endl;
-            }
-                break;
-            }
-
-            case 7:
-            {
-                //display info by order id
-                string orderId;
-                cout<<"enter order ID "<<endl;
-                cin>>orderId;
-                for(int i=0; i<orderCount; i++){
-                    if(orderId==orders[i]->getOrderId()){
-                        orders[i]->displayOrder();
-                        break;
-                    }
-                }
-                break;
-            }
-
-            case 8:
-            {
-                //display info by customer id
-                string custId;
-                cout<<"enter customer ID "<<endl;
-                cin>>custId;
-                for(int i=0; i<customerCount; i++){
-                    if(custId==customers[i]->getUserId()){
-                        customers[i]->displayInfo();
-                    }
-                }
-                break;
-            }
-            case 9:
-            {
-                //display info by driver id
-                string driverId;
-                cout<<"enter driver ID "<<endl;
-                cin>>driverId;
-                for(int i=0; i<driverCount; i++){
-                    if(driverId==drivers[i]->getUserId()){
-                        drivers[i]->displayInfo();
-                    }
-                }
-                break;
-            }
-            case 10:
-            {
-                //validate number of orders
-                if (orderCount < 2) { 
-                    cout << "Need 2 orders to compare." << endl; 
-                    break; }
-                string id1, id2;
-
-                int i1=-11,i2=-11;
-                cout<<"enter which two order IDs"<<endl;
-                cin>>id1>>id2;
-                //search for index of orders
-                for(int i=0; i<orderCount; i++){
-                    if(id1==orders[i]->getOrderId()){
-                        i1=i;
-                    }
-                    if(id2==orders[i]->getOrderId()){
-                        i2=i;
-                    }
-                }
-                //compare orders
-                if (*orders[i1] > *orders[i2]) {
-                    cout << orders[i1]->getOrderId() << " is more expensive " << endl;}
-                else {
-                    cout << orders[i2]->getOrderId() << " is more expensive or equal" << endl;}
-            break;
-            }
-
-            case 11:
-            {
-                cout << "users: " << User::getTotalUsers() << " orders: " << Order::getTotalOrders() << endl; 
-                break;
-            }
-
-            case 12:
-                saveOrders(orders, orderCount);
-                break;
-
+        int choice = readInt("Choice: ");
+        switch (choice) {
+            case 1:  addCustomer(customers);                         break;
+            case 2:  addDriver(drivers);                             break;
+            case 3:  createOrder(orders, customers);                 break;
+            case 4:  addItemToOrder(orders);                         break;
+            case 5:  assignDriverToOrder(orders, drivers);           break;
+            case 6:  updateOrderStatus(orders);                      break;
+            case 7:  displayAllOrders(orders);                       break;
+            case 8:  displayAllCustomers(customers);                 break;
+            case 9:  displayAllDrivers(drivers);                     break;
+            case 10: compareOrders(orders);                          break;
+            case 11: saveCompletedOrders(orders);                    break;
+            case 12: saveDriverStats(drivers);                       break;
             case 13:
-            {
-                saveDriver(drivers, driverCount);
+                std::cout << "Total Users  : " << User::getTotalUsers()   << "\n"
+                          << "Total Orders : " << Order::getTotalOrders() << "\n";
                 break;
-            }
-
-            case 14:
-            {
-                saveOrdersToBinary();
+            case 0:
+                running = false;
                 break;
-            }
-            case 15:
-            {
-                int num;
-                cout<<"enter record"<<endl;
-                cin>>num;
-                loadOrderFromBinary(num);
-                break;
-            }
-
-            case 16:
-                showBinaryFileStats();
-                break;
-
-            case 17:
-                cout<<"exiting"<<endl;
-                break;
-
             default:
-                cout<<"invalid choice"<<endl;
-            
+                std::cout << "Invalid option. Please enter 0-13.\n";
         }
-    } while (choice != 17);
-    for(int i=0; i<customerCount; i++) delete customers[i];
-    delete[] customers;
-    for(int i=0; i<driverCount; i++) delete drivers[i];
-    delete[] drivers;
-    for(int i=0; i<orderCount; i++) delete orders[i];
-    delete[] orders;
+    }
+
+    freeAll(orders, customers, drivers);
+    std::cout << "Goodbye!\n";
     return 0;
 }
