@@ -1,6 +1,7 @@
 #ifndef DELIVERYDRIVER_H
 #define DELIVERYDRIVER_H
 #include "User.cpp"
+#include <climits>
 
 class DeliveryDriver :public User{
     private:
@@ -13,9 +14,7 @@ class DeliveryDriver :public User{
     void displayInfo();
     double calculateEarnings();
     void completeDelivery(double ordervalue);
-    //prefix overload
     DeliveryDriver &operator++();
-    //postfix overload dummy parameter
     DeliveryDriver operator++(int);
     int getCompletedDeliveries() const;
     double getTotalEarnings() const;
@@ -38,22 +37,28 @@ void DeliveryDriver::displayInfo(){
     cout<<"phone: "<<phoneNumber<<endl;
     cout<<"completed deliveries: "<<completedDeliveries<<endl;
     cout<<"total earnings: "<<totalEarnings<<endl;
-    cout<<"average: "<<totalEarnings/completedDeliveries<<endl;
+    if(completedDeliveries > 0){
+        cout<<"average: "<<totalEarnings/completedDeliveries<<endl;
+    }
 }
 double DeliveryDriver::calculateEarnings() { 
       return totalEarnings; }
 void DeliveryDriver::completeDelivery(double ordervalue){
-    totalEarnings+=(0.15*ordervalue);
+    if(ordervalue >= 0){
+        totalEarnings += (0.15 * ordervalue);
+    }
 }
-//prefix overload
 DeliveryDriver &DeliveryDriver::operator++(){
-    completedDeliveries++;
+    if(completedDeliveries < INT_MAX){
+        completedDeliveries++;
+    }
     return *this;
 } 
-//postfix overload dummy parameter
 DeliveryDriver DeliveryDriver::operator++(int){
-    DeliveryDriver temp=*this;
-    completedDeliveries++;
+    DeliveryDriver temp = *this;
+    if(completedDeliveries < INT_MAX){
+        completedDeliveries++;
+    }
     return temp;
 }
 int DeliveryDriver::getCompletedDeliveries() const { return completedDeliveries; }
