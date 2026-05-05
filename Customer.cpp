@@ -1,3 +1,4 @@
+// Customer.cpp
 #include "Customer.h"
 #include <iostream>
 
@@ -11,19 +12,19 @@ Customer::Customer(const std::string& uid, const std::string& n,
 
 void Customer::displayInfo() const {
     std::cout << "=== Customer Info ===\n"
-              << "ID      : " << userId      << "\n"
-              << "Name    : " << name        << "\n"
-              << "Phone   : " << phoneNumber << "\n"
-              << "Address : " << deliveryAddress << "\n"
-              << "Loyalty : " << loyaltyPoints   << " pts\n";
+              << "ID      : " << getUserId()          << "\n"  // ✅ use getters
+              << "Name    : " << getName()             << "\n"  // ✅ use getters
+              << "Phone   : " << getPhoneNumber()      << "\n"  // ✅ use getters
+              << "Address : " << deliveryAddress       << "\n"
+              << "Loyalty : " << loyaltyPoints         << " pts\n";
 }
 
 double Customer::calculateEarnings() const {
     return static_cast<double>(loyaltyPoints) * 0.5;
 }
 
-std::string Customer::getDeliveryAddress() const { return deliveryAddress; }
-int         Customer::getLoyaltyPoints()   const { return loyaltyPoints;   }
+std::string Customer::getDeliveryAddress() const { return deliveryAddress;  }
+int         Customer::getLoyaltyPoints()   const { return loyaltyPoints;    }
 
 void Customer::setDeliveryAddress(const std::string& address) {
     deliveryAddress = address;

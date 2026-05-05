@@ -1,3 +1,4 @@
+// DeliveryDriver.cpp
 #include "DeliveryDriver.h"
 #include <iostream>
 #include <iomanip>
@@ -16,13 +17,13 @@ void DeliveryDriver::displayInfo() const {
                      : 0.0;
     std::cout << std::fixed << std::setprecision(2)
               << "=== Driver Info ===\n"
-              << "ID          : " << userId       << "\n"
-              << "Name        : " << name         << "\n"
-              << "Phone       : " << phoneNumber  << "\n"
-              << "Vehicle     : " << vehicleType  << "\n"
-              << "Deliveries  : " << completedDeliveries << "\n"
-              << "Earnings    : " << totalEarnings << " EGP\n"
-              << "Avg/Delivery: " << avg           << " EGP\n";
+              << "ID          : " << getUserId()          << "\n"  // ✅ getter
+              << "Name        : " << getName()             << "\n"  // ✅ getter
+              << "Phone       : " << getPhoneNumber()      << "\n"  // ✅ getter
+              << "Vehicle     : " << vehicleType           << "\n"
+              << "Deliveries  : " << completedDeliveries   << "\n"
+              << "Earnings    : " << totalEarnings         << " EGP\n"
+              << "Avg/Delivery: " << avg                   << " EGP\n";
 }
 
 double DeliveryDriver::calculateEarnings() const { return totalEarnings; }
@@ -37,11 +38,11 @@ DeliveryDriver& DeliveryDriver::operator++() {
 }
 
 DeliveryDriver DeliveryDriver::operator++(int) {
-    DeliveryDriver tmp = *this;
+    DeliveryDriver tmp = *this;   // uses copy constructor (now explicitly = default)
     ++completedDeliveries;
     return tmp;
 }
 
-std::string DeliveryDriver::getVehicleType()         const { return vehicleType;          }
-int         DeliveryDriver::getCompletedDeliveries() const { return completedDeliveries;  }
-double      DeliveryDriver::getTotalEarnings()       const { return totalEarnings;        }
+std::string DeliveryDriver::getVehicleType()         const { return vehicleType;         }
+int         DeliveryDriver::getCompletedDeliveries() const { return completedDeliveries; }
+double      DeliveryDriver::getTotalEarnings()       const { return totalEarnings;       }
