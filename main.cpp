@@ -211,17 +211,6 @@ static void compareOrders(const std::vector<Order*>& orders) {
     }
 }
 
-// ── freeAll ───────────────────────────────────────────────────────────────────
-static void freeAll(std::vector<Order*>& orders,
-                    std::vector<Customer*>& customers,
-                    std::vector<DeliveryDriver*>& drivers) {
-    for (Order*         o : orders)    { delete o; }
-    for (Customer*      c : customers) { delete c; }
-    for (DeliveryDriver* d : drivers)  { delete d; }
-    orders.clear();
-    customers.clear();
-    drivers.clear();
-}
 
 // ── main ──────────────────────────────────────────────────────────────────────
 int main() {
@@ -274,7 +263,7 @@ int main() {
         }
     }
 
-    freeAll(orders, customers, drivers);
+
     std::cout << "Goodbye!\n";
     return 0;
 }
