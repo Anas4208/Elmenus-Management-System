@@ -16,7 +16,6 @@ main_working
 *.profraw
 *.profdata
 coverage.info
-coverage.xml
 coverage.html
 .coverage
 reports/
