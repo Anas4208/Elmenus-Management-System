@@ -1,7 +1,17 @@
 #ifndef ENUMS_H
 #define ENUMS_H
 
-enum class OrderStatus { PENDING, PREPARING, OUT_FOR_DELIVERY, DELIVERED, CANCELLED };
-enum class UserType { CUSTOMER, DRIVER };
+enum class OrderStatus {
+    PENDING,
+    PREPARING,
+    OUT_FOR_DELIVERY,
+    DELIVERED,
+    CANCELLED
+};
 
-#endif
+enum class UserType {
+    CUSTOMER,
+    DRIVER
+};
+
+#endif // ENUMS_H

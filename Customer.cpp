@@ -1,47 +1,36 @@
-#ifndef CUSTOMER_H
-#define CUSTOMER_H
-#include "User.cpp" 
+#include "Customer.h"
+#include <iostream>
 
-class Customer :public User {
-    private:
-    string deliveryAddress;
-    int loyaltyPoints;
-    public:
-    Customer();
-    Customer(string id, string n, string p, string a);
-    void displayInfo();
-    double calculateEarnings();
-    void setLoyaltyPoints(int p);
-    int getLoyaltyPoints() const;
-    Customer &operator+=(int p);
-};
-#endif
+Customer::Customer()
+    : User(), deliveryAddress(""), loyaltyPoints(0) {}
 
-//default constructor
-Customer::Customer(){
-    deliveryAddress="";
-    loyaltyPoints=0;
+Customer::Customer(const std::string& uid, const std::string& n,
+                   const std::string& phone, const std::string& address,
+                   int points)
+    : User(uid, n, phone), deliveryAddress(address), loyaltyPoints(points) {}
+
+void Customer::displayInfo() const {
+    std::cout << "=== Customer Info ===\n"
+              << "ID      : " << userId      << "\n"
+              << "Name    : " << name        << "\n"
+              << "Phone   : " << phoneNumber << "\n"
+              << "Address : " << deliveryAddress << "\n"
+              << "Loyalty : " << loyaltyPoints   << " pts\n";
 }
-//parameterized construtor
-Customer::Customer(string id, string n, string p, string a):User(id, n, p){
-    deliveryAddress=a;
-    loyaltyPoints=0;
+
+double Customer::calculateEarnings() const {
+    return static_cast<double>(loyaltyPoints) * 0.5;
 }
-void Customer::displayInfo(){
-    cout<<"id: "<<userId<<endl;
-    cout<<"name: "<<name<<endl;
-    cout<<"phone: "<<phoneNumber<<endl;
-    cout<<"address: "<<deliveryAddress<<endl;
-    cout<<"loyalty points: "<<loyaltyPoints<<endl;
+
+std::string Customer::getDeliveryAddress() const { return deliveryAddress; }
+int         Customer::getLoyaltyPoints()   const { return loyaltyPoints;   }
+
+void Customer::setDeliveryAddress(const std::string& address) {
+    deliveryAddress = address;
 }
-double Customer::calculateEarnings(){
-    return loyaltyPoints*0.5;
-}
-void Customer::setLoyaltyPoints(int p) { 
-    loyaltyPoints = p; }
-int Customer::getLoyaltyPoints() const { return loyaltyPoints; }
-Customer &Customer::operator+=(int p){
-    this->loyaltyPoints+=p;
+void Customer::setLoyaltyPoints(int points) { loyaltyPoints = points; }
+
+Customer& Customer::operator+=(int points) {
+    loyaltyPoints += points;
     return *this;
-
 }

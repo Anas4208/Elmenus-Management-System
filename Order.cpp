@@ -1,99 +1,56 @@
-#ifndef ORDER_H
-#define ORDER_H
+#include "Order.h"
 #include <iostream>
-#include "Customer.cpp"
-#include "DeliveryDriver.cpp"
-#include "FoodItem.cpp"
-#include "Enums.h"
-using namespace std;
-
-class Order {
-    private:
-    string orderId;
-    Customer* customer;
-    DeliveryDriver* driver;
-    FoodItem* items;
-    int itemCount;
-    int capacity;
-    OrderStatus status;
-    static int totalOrders;
-    public:
-    Order();
-    Order(string id, Customer *ptr);
-    Order(const Order & obj);
-    ~Order();
-    void addItem(const FoodItem &item);
-    void assignDriver(DeliveryDriver* drv);
-    double calculateTotal() const;
-    void updateStatus(OrderStatus newStatus);
-    void displayOrder()const;
-    static int getTotalOrders();
-    int getItemCount();
-    string getOrderId() const;
-    OrderStatus getStatus() const;
-    Customer* getCustomer() const;
-    DeliveryDriver* getDriver() const;
-    
-    Order &operator+=(const FoodItem & obj);
-    Order operator+(const Order & obj);
-    friend ostream &operator<<(ostream& os,const Order &obj);
-    friend bool operator>(const Order &obj,const Order&obj2);
-    FoodItem &operator[]( int i);
-};
-#endif
+#include <iomanip>
+#include <stdexcept>
 
 int Order::totalOrders = 0;
 
-Order::Order(){
-    orderId="";
-    customer=nullptr;
-    driver=nullptr;
-    items=nullptr;
-    itemCount=0;
-    capacity=10;
-    status=OrderStatus::PENDING;
-    items = new FoodItem[capacity];
-    totalOrders++;
-}
-
-Order::Order(string id, Customer *ptr){
-    orderId=id;
-    customer=ptr;
-    driver=nullptr;
-    items=nullptr;
-    itemCount=0;
-    capacity=1;
-    status=OrderStatus::PENDING;
-    items = new FoodItem[capacity];
-    totalOrders++; 
-}
-
-Order::Order(const Order & obj){
-    orderId=obj.orderId;
-    customer=obj.customer;
-    driver=obj.driver;
-    itemCount=obj.itemCount;
-    capacity=obj.capacity;
-    status=obj.status;
-    items = new FoodItem[capacity];
-    for(int i = 0; i < itemCount; i++) {
-        items[i] = obj.items[i];
+// ── private helper ────────────────────────────────────────────────────────────
+void Order::resize() {
+    int newCap = capacity * 2;
+    FoodItem* newItems = new FoodItem[newCap];
+    for (int i = 0; i < itemCount; ++i) {
+        newItems[i] = items[i];
     }
+    delete[] items;
+    items    = newItems;
+    capacity = newCap;
+}
+
+// ── constructors / destructor ─────────────────────────────────────────────────
+Order::Order()
+    : orderId(""), customer(nullptr), driver(nullptr),
+      items(new FoodItem[4]), itemCount(0), capacity(4),
+      status(OrderStatus::PENDING) {
+    ++totalOrders;
+}
+
+Order::Order(const std::string& oid, Customer* cust)
+    : orderId(oid), customer(cust), driver(nullptr),
+      items(new FoodItem[4]), itemCount(0), capacity(4),
+      status(OrderStatus::PENDING) {
+    ++totalOrders;
+}
+
+Order::Order(const Order& other)
+    : orderId(other.orderId), customer(other.customer), driver(other.driver),
+      items(new FoodItem[other.capacity]), itemCount(other.itemCount),
+      capacity(other.capacity), status(other.status) {
+    for (int i = 0; i < itemCount; ++i) {
+        items[i] = other.items[i];
+    }
+    ++totalOrders;
 }
 
 Order::~Order() {
     delete[] items;
+    --totalOrders;
 }
 
-void Order::addItem(const FoodItem &item){
-    if(itemCount==capacity){
-        capacity*=2;
-        FoodItem* newItems=new FoodItem[capacity];
-        for(int i=0;i<itemCount;i++){
-            newItems[i]=items[i];
-        }
-        delete[] items;
-        items = newItems;
+// ── methods ───────────────────────────────────────────────────────────────────
+void Order::addItem(const FoodItem& item) {
+    if (itemCount == capacity) {
+        resize();
     }
     items[itemCount++] = item;
 }
@@ -102,99 +59,98 @@ void Order::assignDriver(DeliveryDriver* drv) {
     driver = drv;
 }
 
+void Order::updateStatus(OrderStatus newStatus) {
+    status = newStatus;
+    if (newStatus == OrderStatus::DELIVERED) {
+        double total = calculateTotal();
+        if (driver != nullptr) {
+            driver->completeDelivery(total);
+            ++(*driver);
+        }
+        if (customer != nullptr) {
+            int pts = static_cast<int>(total / 10);
+            *customer += pts;
+        }
+    }
+}
+
 double Order::calculateTotal() const {
-    double total = 0;
-    for(int i=0; i<itemCount; i++) {
+    double total = 0.0;
+    for (int i = 0; i < itemCount; ++i) {
         total += items[i].calculateItemTotal();
     }
     return total;
 }
 
-void Order::updateStatus(OrderStatus newStatus){
-    status=newStatus;
-    if(newStatus==OrderStatus::DELIVERED){
-        double total=calculateTotal();
-        if(driver != nullptr){
-            driver->completeDelivery(total);
-            (*driver)++;
-        }
-        if(customer != nullptr){
-            *customer += static_cast<int>(total)/2;
-        }
-    }
+void Order::displayOrder() const {
+    std::cout << *this;
 }
 
-void Order::displayOrder()const{
-    string statusLabels[] = {"PENDING", "PREPARING", "OUT_FOR_DELIVERY", "DELIVERED", "CANCELLED"};
-    cout<< "order ID: "<< orderId<<endl;
-    cout<< "status: "<<statusLabels[(int)status]<< endl;
-    cout<< "customer: "<< (customer ? customer->getName() : "None") << endl;
-    cout<< "driver: " << (driver ? driver->getName() : "None") << endl;
-    cout<< "items" << endl;
-    for(int i=0; i<itemCount; i++) {
-        items[i].displayItem();
-    }
-    cout << "total amount:"<<calculateTotal() << endl;
-}
+int Order::getTotalOrders() { return totalOrders; }
 
-int Order::getTotalOrders() { 
-    return totalOrders; 
-}
+std::string     Order::getOrderId()   const { return orderId;   }
+Customer*       Order::getCustomer()  const { return customer;  }
+DeliveryDriver* Order::getDriver()    const { return driver;    }
+OrderStatus     Order::getStatus()    const { return status;    }
+int             Order::getItemCount() const { return itemCount; }
 
-int Order::getItemCount(){
-    return itemCount;
-}
-
-string Order::getOrderId() const {
-    return orderId; 
-}
-
-OrderStatus Order::getStatus() const { 
-    return status; 
-}
-
-Customer* Order::getCustomer() const { 
-    return customer; 
-}
-
-DeliveryDriver* Order::getDriver() const {
-     return driver; 
-}
-
-Order &Order::operator+=(const FoodItem & obj){
-    addItem(obj);
+// ── operators ─────────────────────────────────────────────────────────────────
+Order& Order::operator+=(const FoodItem& item) {
+    addItem(item);
     return *this;
 }
 
-Order Order::operator+(const Order & obj){
-    Order newOrder(this->orderId +"-"+ obj.orderId, this->customer);
-    for(int i = 0; i < this->itemCount; i++) {
-        newOrder.addItem(this->items[i]);}
-    for(int i = 0; i < obj.itemCount; i++) {
-        newOrder.addItem(obj.items[i]);}
-    return newOrder;
+FoodItem& Order::operator[](int index) {
+    if (index < 0 || index >= itemCount) {
+        throw std::out_of_range("Order index out of range");
+    }
+    return items[index];
 }
 
-ostream &operator<<(ostream& os,const Order &obj){
-    string statusLabels[] = {"PENDING", "PREPARING", "OUT_FOR_DELIVERY", "DELIVERED", "CANCELLED"};
-    os<< "status: "<<statusLabels[(int)obj.status]<< endl;
-    os << "order ID: " << obj.orderId <<endl;
-    os << "customer: " << (obj.customer ? obj.customer->getName() : "None") << endl;
-    os << "driver: " << (obj.driver ? obj.driver->getName() : "None") << endl;
-    os << "items" << endl;
-    for(int i = 0; i < obj.itemCount; i++) {
-        os << obj.items[i].getItemName()<<endl;
-        os <<"quantity: " <<obj.items[i].getQuantity()<<endl;
-        os<< "price : " << obj.items[i].calculateItemTotal() << endl;
-    } 
-    os << "total amount: " << obj.calculateTotal() << endl;
+const FoodItem& Order::operator[](int index) const {
+    if (index < 0 || index >= itemCount) {
+        throw std::out_of_range("Order index out of range");
+    }
+    return items[index];
+}
+
+// ── friends ───────────────────────────────────────────────────────────────────
+Order* combineOrders(const Order& lhs, const Order& rhs) {
+    Order* combined = new Order(lhs.orderId + "_" + rhs.orderId, lhs.customer);
+    combined->driver = lhs.driver;
+    combined->status = lhs.status;
+    for (int i = 0; i < lhs.itemCount; ++i) {
+        combined->addItem(lhs.items[i]);
+    }
+    for (int i = 0; i < rhs.itemCount; ++i) {
+        combined->addItem(rhs.items[i]);
+    }
+    return combined;
+}
+
+std::ostream& operator<<(std::ostream& os, const Order& order) {
+    os << std::fixed << std::setprecision(2)
+       << "==================== ORDER ====================\n"
+       << "Order ID : " << order.orderId << "\n";
+
+    if (order.customer != nullptr) {
+        os << "Customer : " << order.customer->getName() << "\n"
+           << "Address  : " << order.customer->getDeliveryAddress() << "\n";
+    }
+    if (order.driver != nullptr) {
+        os << "Driver   : " << order.driver->getName() << "\n";
+    }
+
+    os << "Items    :\n";
+    for (int i = 0; i < order.itemCount; ++i) {
+        os << "  ";
+        order.items[i].displayItem();
+    }
+    os << "Total    : " << order.calculateTotal() << " EGP\n"
+       << "===============================================\n";
     return os;
 }
 
-bool operator>(const Order &obj,const Order&obj2){
-    return obj.calculateTotal() > obj2.calculateTotal();
-}
-
-FoodItem &Order::operator[]( int i){
-    return items[i];
+bool operator>(const Order& lhs, const Order& rhs) {
+    return lhs.calculateTotal() > rhs.calculateTotal();
 }
