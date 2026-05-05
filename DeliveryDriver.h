@@ -12,8 +12,10 @@ private:
 public:
     DeliveryDriver();
     DeliveryDriver(const std::string& uid, const std::string& n,
-                   const std::string& phone, const std::string& vehicle);
-
+                const std::string& phone, const std::string& vehicle);
+                
+    DeliveryDriver(DeliveryDriver&& other) noexcept = default;
+    DeliveryDriver& operator=(DeliveryDriver&& other) noexcept = default;
     void   displayInfo()       const override;
     double calculateEarnings() const override;
 
